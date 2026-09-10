@@ -1,17 +1,15 @@
 :root {
-  --webmcp-forest: #0b3d2e;
-  --webmcp-teal: #087f73;
-  --webmcp-mint: #89d6bd;
-  --webmcp-sun: #f4b740;
-  --webmcp-ink: #102a43;
-  --webmcp-night: #0a0a18;
-  --webmcp-night-mid: #11102a;
+  --css-blue: #00a4e0;
+  --css-blue-light: #8dd9f3;
+  --css-blue-deep: #043175;
+  --webmcp-night: #061126;
+  --webmcp-night-mid: #0b1c3d;
 }
 
 .slidev-layout {
   background:
-    radial-gradient(circle at 92% 8%, rgb(94 212 255 / 16%), transparent 23rem),
-    radial-gradient(circle at 5% 96%, rgb(125 249 197 / 11%), transparent 20rem),
+    radial-gradient(circle at 92% 8%, rgb(0 164 224 / 18%), transparent 23rem),
+    radial-gradient(circle at 5% 96%, rgb(4 49 117 / 32%), transparent 20rem),
     linear-gradient(135deg, var(--webmcp-night), var(--webmcp-night-mid));
   color: #f5f3ff;
 }
@@ -38,19 +36,19 @@
   height: 0.25rem;
   margin-top: 0.75rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--webmcp-teal), var(--webmcp-mint));
+  background: linear-gradient(90deg, var(--css-blue-deep), var(--css-blue));
   content: "";
 }
 
 .slidev-layout h2 {
-  color: var(--webmcp-mint);
+  color: var(--css-blue-light);
   font-weight: 750;
   letter-spacing: -0.035em;
 }
 
 .slidev-layout strong,
 .slidev-layout .text-primary {
-  color: var(--webmcp-mint);
+  color: var(--css-blue);
 }
 
 .slidev-layout code {
@@ -60,9 +58,9 @@
 
 .dark .slidev-layout {
   background:
-    radial-gradient(circle at 92% 8%, rgb(94 212 255 / 13%), transparent 23rem),
-    radial-gradient(circle at 5% 96%, rgb(125 249 197 / 9%), transparent 20rem),
-    linear-gradient(135deg, #080812, #0f0e25);
+    radial-gradient(circle at 92% 8%, rgb(0 164 224 / 15%), transparent 23rem),
+    radial-gradient(circle at 5% 96%, rgb(4 49 117 / 26%), transparent 20rem),
+    linear-gradient(135deg, #040b19, #091630);
   color: #f5f3ff;
 }
 
@@ -73,5 +71,5 @@
 .dark .slidev-layout h2,
 .dark .slidev-layout strong,
 .dark .slidev-layout .text-primary {
-  color: #7df9c5;
+  color: var(--css-blue-light);
 }

@@ -41,7 +41,7 @@ const progress = computed(() => {
   width: 100%;
   height: 100%;
   transform-origin: left center;
-  background: linear-gradient(90deg, #5ed4ff, #7df9c5);
+  background: linear-gradient(90deg, var(--css-blue-deep), var(--css-blue));
   transition: transform 220ms ease;
 }
 </style>
