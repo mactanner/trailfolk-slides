@@ -1,5 +1,6 @@
 ---
 theme: default
+css: unocss
 title: Der DOM ist keine API
 info: |
   ## Der DOM ist keine API: WebMCP für KI-Agenten
