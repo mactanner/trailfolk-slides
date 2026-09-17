@@ -4,7 +4,7 @@ css: unocss
 title: Der DOM ist keine API
 info: |
   ## Der DOM ist keine API: WebMCP für KI-Agenten
-  DevCon Luzern, Oktober 2026
+  DevCon Lozärn, Oktober 2026
 class: text-center
 drawings:
   persist: false
@@ -17,16 +17,20 @@ fonts:
 
 # Der DOM ist keine API
 
-## WebMCP für KI-Agenten
+<div class="text-5xl leading-relaxed mt-12">
+  Warum bedienen KI-Tools Web-Apps trotzdem über
+  <span class="text-primary font-bold">ihre menschliche Oberfläche?</span>
+</div>
 
-<div class="mt-12 text-xl opacity-75">
-  DevCon Luzern · Oktober 2026
+<div class="mt-12 text-xl opacity-70">
+  WebMCP für KI-Agenten · DevCon Lozärn · Oktober 2026
 </div>
 
 <!--
-Willkommen. Heute geht es nicht um "noch ein MCP", sondern um die Frage,
-wie Agents sinnvoll mit laufenden Web-Apps zusammenarbeiten können - ohne den
-DOM als inoffiziellen API-Vertrag behandeln zu müssen.
+Der Titel ist die technische These. Die Frage darunter macht sofort klar,
+warum sie für KI-Tools relevant ist: Sie bekommen oft keine fachliche
+Schnittstelle, sondern müssen die für Menschen gebaute Oberfläche lesen,
+interpretieren und per UI bedienen.
 
 Timing: 0:00-0:30
 -->
@@ -37,30 +41,7 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="text-5xl leading-relaxed mt-18">
-Wie kann ein Agent mit einer komplexen Web-App arbeiten,
-<span class="text-primary font-bold">ohne ihre menschliche Oberfläche
-erraten zu müssen?</span>
-</div>
-
-<div class="mt-12 text-xl opacity-70">
-Beispiel heute: eine Schweizer Wander-App
-</div>
-
-<!--
-Das Zielbild kurz setzen: Die UI bleibt für Menschen zentral. WebMCP soll
-Agents nicht von der Seite wegführen, sondern sie in denselben Kontext holen.
-
-Timing: 0:30-1:30
--->
-
----
-layout: center
-class: text-left
-transition: fade
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Eine konkrete Absicht</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Eine einfache Bitte</div>
 
 <div class="rounded-xl border border-primary/30 bg-primary/10 p-8 mt-6 text-3xl leading-relaxed">
   "Finde mir eine mittelschwere Wanderung in der Zentralschweiz,
@@ -69,16 +50,44 @@ transition: fade
 </div>
 
 <div v-click class="mt-10 text-xl opacity-75">
-Für einen Menschen: wenige gezielte Interaktionen.<br>
-Für einen Agenten: Was genau muss er über die Seite wissen?
+Für dich ist das eine Absicht.<br>
+Für die App wird daraus: Region, Schwierigkeit, Distanz, Dauer und Höhenmeter.
 </div>
 
 <!--
-Hier Trailfolk kurz mit allen Resultaten und den sichtbaren Filtern zeigen.
-Noch keine Live-Demo. Das Publikum soll die Aufgabe verstehen, bevor die
-Technik kommt.
+Die Wander-App ist kein Selbstzweck, sondern ein sichtbares Beispiel für die
+Übersetzung von Bedeutung in UI-Zustand: Filter, Resultate und Karten. Die
+Frage ist zunächst nicht "Was ist ein Agent?", sondern: Warum muss eine klare
+Absicht erst in einen UI-Hindernislauf übersetzt werden?
 
-Timing: 1:30-3:00
+Timing: 0:30-1:45
+-->
+
+---
+layout: center
+class: text-left
+transition: fade
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Wenn Software die Aufgabe übernimmt</div>
+
+<div class="text-5xl leading-relaxed mt-8">
+  Ein <span class="text-primary font-bold">Browser-Agent</span> soll diese
+  Absicht in der laufenden Web-App ausführen.
+</div>
+
+<div v-click class="mt-10 text-xl opacity-75">
+Damit meinen wir einen KI-gestützten Software-Assistenten, der im Browser
+nicht nur antwortet, sondern Aktionen ausführt und den Seitenzustand liest.
+</div>
+
+<!--
+Den Begriff hier bewusst erklären, bevor die technische Perspektive folgt.
+Trailfolk kurz mit Filtern, Resultatliste und Wanderkarten zeigen: Die Seite
+ist für Menschen verständlich, aber der Agent muss ihre Bedienlogik erst
+rekonstruieren.
+
+Timing: 1:45-3:00
 -->
 
 ---
@@ -87,7 +96,7 @@ layoutClass: gap-12
 transition: slide-left
 ---
 
-# Agents lesen Oberflächen
+# Was muss der Browser-Agent heute tun?
 
 <div class="mt-8 text-left text-xl leading-loose">
 
@@ -146,14 +155,14 @@ transition: fade
 
 ::right::
 
-# Bis es bricht.
+# Aber ineffizient und ungenau.
 
 <div class="mt-10 text-left text-xl">
 
-- Labels oder Layout ändern sich
-- Dynamische Inhalte laden nach
-- Gleichartige Controls sind mehrdeutig
-- Sichtbarer und fachlicher Zustand können auseinanderlaufen
+- Viele Zwischenschritte für eine einfache Absicht
+- Den Zustand nach jeder Aktion erneut auslesen
+- Mehrdeutige Controls interpretieren
+- Fachliche Bedeutung aus UI-Signalen rekonstruieren
 
 </div>
 
@@ -162,8 +171,12 @@ Gutes semantisches HTML und Accessibility bleiben unverzichtbar.
 </div>
 
 <!--
-Die Balance bewusst halten. WebMCP ist kein Argument gegen Accessibility.
-Eine zugängliche Seite hilft Menschen und UI-automatisierenden Agents.
+Nicht sagen, dass UI-Automation einfach "bricht": Der Agent liest die Seite
+immer wieder neu. Das kann funktionieren, ist aber ein ineffizienter Umweg
+und die Bedeutung der UI-Signale bleibt ungenau.
+
+WebMCP ist kein Argument gegen Accessibility. Eine zugängliche Seite hilft
+Menschen und UI-automatisierenden Agents weiterhin.
 
 Timing: 5:00-7:00
 -->

@@ -1,7 +1,7 @@
-# WebMCP an der DevCon Luzern
+# WebMCP an der DevCon Lozärn
 
 **Format:** 40 Minuten Vortrag  
-**Anlass:** DevCon Luzern, Ende Oktober 2026  
+**Anlass:** DevCon Lozärn, Ende Oktober 2026  
 **Zielgruppe:** Entwicklerinnen und Entwickler mit Interesse an AI Agents und Web-Plattform  
 **Leitfrage:** Wie können AI Agents mit komplexen Web-Apps zuverlässig zusammenarbeiten, ohne die menschliche Oberfläche und ihren Zustand zu umgehen?
 
@@ -22,7 +22,7 @@ bleibt die sichtbare, zustandsführende Oberfläche; ein Agent unterstützt sie
 | Zeit | Abschnitt | Kernbotschaft | Mögliche Folien |
 |---:|---|---|---|
 | 0–3 min | Hook | Eine natürliche Absicht muss heute in viele UI-Schritte übersetzt werden. | 1–2 |
-| 3–9 min | Status quo | Agents sehen Screenshots sowie DOM- und Accessibility-Tree-Snapshots und simulieren menschliche Eingaben. Das ist nützlich, aber bei dynamischen Oberflächen und Layout-Änderungen fragil. | 3–4 |
+| 3–9 min | Status quo | Agents sehen Screenshots sowie DOM- und Accessibility-Tree-Snapshots und simulieren menschliche Eingaben. Das funktioniert, ist aber ineffizient und ungenau, weil Bedeutung aus UI-Signalen rekonstruiert und der Zustand wiederholt gelesen wird. | 3–4 |
 | 9–14 min | Was WebMCP ist | WebMCP steht für Web Model Context Protocol. Es ist eine vorgeschlagene Browser-API der W3C Web Machine Learning Community Group, die Tools per JavaScript oder annotierten HTML-Formularen verfügbar macht. | 5–7 |
 | 14–17 min | Architektur und Abgrenzung | WebMCP läuft im Browser und nutzt bestehenden UI-, Session- und Client-Zustand. Es ergänzt serverseitiges MCP oder OpenAPI; es ersetzt sie nicht. | 8–10 |
 | 17–20 min | Einsatzfelder | Support-Formulare, Buchungen, interaktive Anwendungen und Entwickler-Tools: WebMCP ist sinnvoll, wenn der sichtbare Browser-Kontext Teil der Aufgabe ist. | 11 |
@@ -36,17 +36,27 @@ insgesamt vier Minuten gekürzt.
 
 ## Dramaturgie
 
-### 1. Einstieg: eine konkrete Absicht
+### 1. Einstieg: klare Absicht, unklare Oberfläche
 
-Mit einem Satz beginnen, nicht mit einer Definition:
+Mit der technischen These und dem konkreten Problem von KI-Tools beginnen,
+nicht mit einer Definition:
+
+> Der DOM ist keine API.
+>
+> Warum bedienen KI-Tools Web-Apps trotzdem über ihre menschliche Oberfläche?
+
+Dann die konkrete Absicht zeigen:
 
 > „Finde mir eine mittelschwere Wanderung in der Zentralschweiz, zwischen
 > 8 und 14 Kilometern, maximal vier Stunden und mit mindestens
 > 500 Höhenmetern.“
 
-Dann Trailfolk kurz als menschliche Oberfläche zeigen: Filterleiste,
-Resultatliste, Wanderkarten. Erst danach die Frage stellen: Was muss ein
-Agent tun, wenn die Seite keine explizite Schnittstelle anbietet?
+Die Wander-App ist dabei kein Selbstzweck, sondern ein anschauliches Beispiel
+für die Übersetzung einer Absicht in UI-Zustand: Filter, Resultatliste und
+Karten. Danach den Begriff erklären: Ein Browser-Agent ist hier ein
+KI-gestützter Software-Assistent, der im Browser Aktionen ausführt und den
+Seitenzustand liest. Erst dann die Frage stellen: Was muss er tun, wenn die
+Seite keine explizite Schnittstelle anbietet?
 
 ### 2. Status quo differenziert darstellen
 

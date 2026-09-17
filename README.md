@@ -1,6 +1,6 @@
 # Der DOM ist keine API
 
-Slidev-Deck fuer die DevCon Luzern 2026:
+Slidev-Deck fuer die DevCon Lozärn 2026:
 
 > **WebMCP fuer KI-Agenten** - wie Web-Apps ihre Daten und klar abgegrenzten
 > Faehigkeiten als strukturierte Tools fuer Browser-Agents anbieten koennen.
