@@ -15,23 +15,22 @@ fonts:
   mono: JetBrains Mono
 ---
 
-# Der DOM ist keine API
+<div class="h-full flex flex-col items-center justify-center">
+  <div class="text-sm tracking-widest uppercase opacity-60">
+    WebMCP für KI-Agenten
+  </div>
 
-<div class="text-5xl leading-relaxed mt-12">
-  Webseiten sind für <span class="text-primary font-bold">Menschen</span> gebaut.
-  Was passiert, wenn ein Agent sie bedient?
-</div>
+  <h1 class="!mt-6 !text-center !text-6xl font-sans tracking-tight">
+    Der DOM ist<br><span class="text-primary">keine API</span>
+  </h1>
 
-<div class="mt-12 text-xl opacity-70">
-  WebMCP für KI-Agenten · DevCon Lozärn · Oktober 2026
+  <div class="mt-12 text-xl opacity-70">
+    DevCon Lozärn · Oktober 2026
+  </div>
 </div>
 
 <!--
-Titel als technische These. Der Untertitel setzt die Story: Webseiten sind für
-Menschen gebaut, aber immer mehr Software (Agents) bedient sie ebenfalls.
-
-Publikum sind Entwicklerinnen und Entwickler mit Interesse an AI Agents und der
-Web-Plattform. Also: konkret, mit Demos und Code, ohne Marketing-Ton.
+Kurzer Einstieg mit Titel und Thema.
 
 Timing: 0:00-0:20
 -->
@@ -42,26 +41,17 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Der Ausgangspunkt</div>
-
-<div class="text-5xl leading-relaxed mt-6">
-Jede Webseite ist eine Übersetzung:
-<span class="text-primary font-bold">Absicht → Klicks, Felder, Listen.</span>
+<div class="intent-prompt mt-12 px-10 py-9 text-3xl leading-relaxed">
+  „Ich suche eine mittelschwere Wanderung in der Zentralschweiz – rund 15 km und maximal sechs Stunden.“
 </div>
 
-<div v-click class="mt-10 text-xl opacity-75">
-Ein Mensch macht diese Übersetzung im Kopf. Software muss sie erst rekonstruieren.
-</div>
-
-<div class="mt-10">
-  <Placeholder kind="image" h="12rem"
-    label="Foto/Illustration: Person filtert Wanderungen in Trailfolk am Laptop" />
+<div v-click class="mt-10 text-2xl opacity-75">
+  Eine klare Absicht für Menschen. Für Software beginnt daraus erst eine Reihe von Klicks, Feldern und Listen.
 </div>
 
 <!--
-Der Hook: Webseiten sind für Menschen gebaut. Die Übersetzung von Absicht in
-UI-Zustand machen wir als Menschen mühelos. Genau diese Übersetzung ist für
-Software der schwierige Teil.
+Der Hook ist ein konkreter Nutzerwunsch. Für Menschen ist die Absicht klar;
+Software muss sie erst in die Bedienung einer Seite übersetzen.
 
 Timing: 0:20-1:00
 -->
@@ -84,15 +74,16 @@ Eine kleine Schweizer Wander-App.
 
 </div>
 
-<div class="mt-8 text-lg opacity-70">
-Läuft durch die ganze Präsentation als Beispiel.
-</div>
-
 ::right::
 
 <div class="mt-4">
-  <Placeholder kind="image" h="20rem"
-    label="Screenshot: Trailfolk-Startansicht mit Filtern und Resultatliste" />
+  <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">
+    <img
+      src="./images/trailfolk-filters.png"
+      alt="Trailfolk-Startansicht mit Filtern und Resultatliste"
+      class="w-full h-80 object-contain object-top"
+    />
+  </a>
 </div>
 
 <!--
@@ -178,30 +169,34 @@ layoutClass: gap-10
 transition: fade
 ---
 
-# Das funktioniert
+<h1>Das funktioniert</h1>
 
 <div class="mt-8 text-left text-xl leading-relaxed">
 
-- Braucht keine Integration seitens der Seite
-- Funktioniert auch bei alten Seiten
-- Nutzt vorhandene Semantik und Accessibility
+  <ul class="list-disc pl-6">
+    <li>Braucht keine Integration seitens der Seite</li>
+    <li>Funktioniert auch bei alten Seiten</li>
+    <li>Nutzt vorhandene Semantik und Accessibility</li>
+  </ul>
 
 </div>
 
 ::right::
 
-# Aber teuer und unsicher
+<h1 v-click="1">Aber ...</h1>
 
-<div class="mt-8 text-left text-xl leading-relaxed">
+<div v-click="1" class="mt-8 text-left text-xl leading-relaxed">
 
-- Viele Schritte für eine einfache Absicht
-- Zustand nach jeder Aktion neu lesen
-- Mehrdeutige Controls, Fehlklicks
-- Bedeutung wird geraten, nicht gegeben
+  <ul class="list-disc pl-6">
+    <li>Viele Schritte für eine einfache Absicht</li>
+    <li>Zustand nach jeder Aktion neu lesen</li>
+    <li>Mehrdeutige Controls, Fehlklicks</li>
+    <li>Bedeutung wird geraten, nicht gegeben</li>
+  </ul>
 
 </div>
 
-<div class="absolute bottom-8 left-0 right-0 text-center opacity-70">
+<div v-click="2" class="absolute bottom-8 left-0 right-0 text-center opacity-70">
 Gutes semantisches HTML und Accessibility bleiben wichtig – für Menschen und für diese Agents.
 </div>
 
@@ -604,16 +599,23 @@ class: text-left
 transition: slide-left
 ---
 
-# Was bleibt
+# WebMCP: Drei Dinge zum Mitnehmen
 
-<div class="mt-10 text-2xl leading-loose">
+<div class="mt-10 space-y-6 text-2xl leading-relaxed">
+  <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
+    <span class="text-primary font-bold">1.</span>
+    <span>WebMCP macht ausgewählte Web-Fähigkeiten explizit, statt sie aus der UI raten zu lassen.</span>
+  </div>
 
-<div v-click><span class="text-primary font-bold">1.</span> WebMCP macht ausgewählte Web-Fähigkeiten explizit, statt sie aus der UI raten zu lassen.</div>
+  <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
+    <span class="text-primary font-bold">2.</span>
+    <span>Es ergänzt Backend-MCP, APIs, Accessibility und menschliche Kontrolle – es ersetzt sie nicht.</span>
+  </div>
 
-<div v-click><span class="text-primary font-bold">2.</span> Es ergänzt Backend-MCP, APIs, Accessibility und menschliche Kontrolle – es ersetzt sie nicht.</div>
-
-<div v-click><span class="text-primary font-bold">3.</span> Der Nutzen hängt an gutem Tool-Design, klaren Grenzen und sichtbarer UI.</div>
-
+  <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
+    <span class="text-primary font-bold">3.</span>
+    <span>Der Nutzen hängt an gutem Tool-Design, klaren Grenzen und sichtbarer UI.</span>
+  </div>
 </div>
 
 <!--
@@ -628,14 +630,23 @@ class: text-center
 transition: fade
 ---
 
-# Danke – Fragen?
-
-<div class="text-3xl text-primary font-bold mt-8">
-Nicht nur Buttons zeigen, sondern Fähigkeiten anbieten.
+<div class="text-5xl font-bold text-center">
+  Danke - Fragen?
 </div>
 
-<div class="mt-16 text-sm opacity-60">
-Quellen: webmachinelearning.github.io/webmcp · developer.chrome.com/docs/ai/webmcp · github.com/browser-use/web-ui
+<div class="mt-14 text-center text-lg leading-relaxed">
+  <div class="font-bold text-primary">Markus Tanner</div>
+  <div>Software Engineer</div>
+  <a href="mailto:markus.tanner@css.ch">markus.tanner@css.ch</a>
+</div>
+
+<div class="absolute bottom-8 left-12 right-12 border-t border-main/20 pt-3 text-left text-xs leading-relaxed opacity-60">
+  <div class="font-bold uppercase tracking-widest mb-2">Quellen</div>
+  <ul class="grid grid-cols-3 gap-x-6 gap-y-1 list-disc list-inside break-all">
+    <li>webmachinelearning.github.io/webmcp</li>
+    <li>developer.chrome.com/docs/ai/webmcp</li>
+    <li>github.com/browser-use/web-ui</li>
+  </ul>
 </div>
 
 <!--
