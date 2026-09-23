@@ -9,7 +9,7 @@ class: text-center
 drawings:
   persist: false
 transition: fade
-duration: 40min
+duration: 20min
 fonts:
   sans: Inter
   mono: JetBrains Mono
@@ -18,8 +18,8 @@ fonts:
 # Der DOM ist keine API
 
 <div class="text-5xl leading-relaxed mt-12">
-  Warum bedienen KI-Tools Web-Apps trotzdem über
-  <span class="text-primary font-bold">ihre menschliche Oberfläche?</span>
+  Webseiten sind für <span class="text-primary font-bold">Menschen</span> gebaut.
+  Was passiert, wenn ein Agent sie bedient?
 </div>
 
 <div class="mt-12 text-xl opacity-70">
@@ -27,12 +27,13 @@ fonts:
 </div>
 
 <!--
-Der Titel ist die technische These. Die Frage darunter macht sofort klar,
-warum sie für KI-Tools relevant ist: Sie bekommen oft keine fachliche
-Schnittstelle, sondern müssen die für Menschen gebaute Oberfläche lesen,
-interpretieren und per UI bedienen.
+Titel als technische These. Der Untertitel setzt die Story: Webseiten sind für
+Menschen gebaut, aber immer mehr Software (Agents) bedient sie ebenfalls.
 
-Timing: 0:00-0:30
+Publikum sind Entwicklerinnen und Entwickler mit Interesse an AI Agents und der
+Web-Plattform. Also: konkret, mit Demos und Code, ohne Marketing-Ton.
+
+Timing: 0:00-0:20
 -->
 
 ---
@@ -41,26 +42,65 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Eine einfache Bitte</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Der Ausgangspunkt</div>
 
-<div class="rounded-xl border border-primary/30 bg-primary/10 p-8 mt-6 text-3xl leading-relaxed">
-  "Finde mir eine mittelschwere Wanderung in der Zentralschweiz,
-  zwischen 8 und 14 Kilometern, maximal vier Stunden und mit mindestens
-  500 Höhenmetern."
+<div class="text-5xl leading-relaxed mt-6">
+Jede Webseite ist eine Übersetzung:
+<span class="text-primary font-bold">Absicht → Klicks, Felder, Listen.</span>
 </div>
 
 <div v-click class="mt-10 text-xl opacity-75">
-Für dich ist das eine Absicht.<br>
-Für die App wird daraus: Region, Schwierigkeit, Distanz, Dauer und Höhenmeter.
+Ein Mensch macht diese Übersetzung im Kopf. Software muss sie erst rekonstruieren.
+</div>
+
+<div class="mt-10">
+  <Placeholder kind="image" h="12rem"
+    label="Foto/Illustration: Person filtert Wanderungen in Trailfolk am Laptop" />
 </div>
 
 <!--
-Die Wander-App ist kein Selbstzweck, sondern ein sichtbares Beispiel für die
-Übersetzung von Bedeutung in UI-Zustand: Filter, Resultate und Karten. Die
-Frage ist zunächst nicht "Was ist ein Agent?", sondern: Warum muss eine klare
-Absicht erst in einen UI-Hindernislauf übersetzt werden?
+Der Hook: Webseiten sind für Menschen gebaut. Die Übersetzung von Absicht in
+UI-Zustand machen wir als Menschen mühelos. Genau diese Übersetzung ist für
+Software der schwierige Teil.
 
-Timing: 0:30-1:45
+Timing: 0:20-1:00
+-->
+
+---
+layout: two-cols
+layoutClass: gap-10
+transition: slide-left
+---
+
+# Trailfolk
+
+<div class="mt-6 text-left text-xl leading-relaxed">
+
+Eine kleine Schweizer Wander-App.
+
+- Filter: Region, Schwierigkeit, Distanz, Dauer, Höhenmeter
+- Resultatliste mit Wanderkarten
+- Tab **Entdecken** und Tab **Inspiration**
+
+</div>
+
+<div class="mt-8 text-lg opacity-70">
+Läuft durch die ganze Präsentation als Beispiel.
+</div>
+
+::right::
+
+<div class="mt-4">
+  <Placeholder kind="image" h="20rem"
+    label="Screenshot: Trailfolk-Startansicht mit Filtern und Resultatliste" />
+</div>
+
+<!--
+Live-Demo (kurz): Trailfolk aus Sicht eines Menschen. Filter setzen, Resultate
+sehen, eine Wanderung öffnen. Nur so viel zeigen, dass klar wird, wie die App
+funktioniert.
+
+Timing: 1:00-3:00
 -->
 
 ---
@@ -69,72 +109,67 @@ class: text-left
 transition: fade
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Wenn Software die Aufgabe übernimmt</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Wovon reden wir?</div>
 
-<div class="text-5xl leading-relaxed mt-8">
-  Ein <span class="text-primary font-bold">Browser-Agent</span> soll diese
-  Absicht in der laufenden Web-App ausführen.
+<div class="text-5xl leading-relaxed mt-6">
+Ein <span class="text-primary font-bold">Web Agent</span> ist Software, die im
+Browser Seiten liest und bedient.
 </div>
 
-<div v-click class="mt-10 text-xl opacity-75">
-Damit meinen wir einen KI-gestützten Software-Assistenten, der im Browser
-nicht nur antwortet, sondern Aktionen ausführt und den Seitenzustand liest.
+<div v-click class="mt-8 text-xl opacity-75">
+Nicht nur antworten, sondern klicken, tippen und den Seitenzustand auswerten –
+im Auftrag eines Nutzers.
+</div>
+
+<div class="mt-8">
+  <Placeholder kind="video" h="10rem"
+    label="Aufzeichnung: Browser-Use Agent bedient Trailfolk (github.com/browser-use/web-ui)" />
 </div>
 
 <!--
-Den Begriff hier bewusst erklären, bevor die technische Perspektive folgt.
-Trailfolk kurz mit Filtern, Resultatliste und Wanderkarten zeigen: Die Seite
-ist für Menschen verständlich, aber der Agent muss ihre Bedienlogik erst
-rekonstruieren.
+Begriff klären, bevor die Technik kommt. Web Agent = KI-gestützte Software, die
+im Browser handelt. Beispiel als Aufzeichnung zeigen (Browser Use), um Zeit und
+Flakiness zu vermeiden.
 
-Timing: 1:45-3:00
+Timing: 3:00-4:30
 -->
 
 ---
 layout: two-cols
-layoutClass: gap-12
+layoutClass: gap-10
 transition: slide-left
 ---
 
-# Was muss der Browser-Agent heute tun?
+# Wie ein Agent das heute macht
 
-<div class="mt-8 text-left text-xl leading-loose">
+<div class="mt-6 text-left text-lg leading-loose">
 
-<div v-click>1. Screenshots lesen</div>
-<div v-click>2. Verschachtelte DOM-Bäume und Accessibility Tree auswerten</div>
-<div v-click>3. IDs, Labels und Controls erraten</div>
+<div v-click>1. Screenshot und DOM lesen</div>
+<div v-click>2. Accessibility-Tree auswerten</div>
+<div v-click>3. Passende Controls raten (IDs, Labels)</div>
 <div v-click>4. Klicken, tippen, warten</div>
-<div v-click>5. Den resultierenden Zustand erneut auslesen</div>
+<div v-click>5. Den neuen Zustand erneut auslesen</div>
+<div v-click>6. Zurück zu Schritt 1</div>
 
 </div>
 
 ::right::
 
-<div class="rounded-xl border border-main/20 p-6 mt-8 text-left">
-
-<div class="font-mono text-sm opacity-55 mb-5">Beispielhafte Schrittfolge</div>
-
-1. Finde das passende DOM-Element
-2. Öffne das Select
-3. Wähle "Zentralschweiz"
-4. Finde "Schwierigkeit"
-5. Setze "Mittel"
-6. Interpretiere Sliders
-7. Lies die Resultatliste
-
+<div class="mt-4">
+  <Placeholder kind="diagram" h="13rem"
+    label="Diagramm: Regelkreis aus Screenshot → DOM/A11y-Tree → Aktion → erneut lesen" />
 </div>
 
-<div class="mt-6 h-26 rounded-xl border-2 border-dashed border-primary/35 bg-primary/5 flex items-center justify-center text-center text-sm opacity-75">
-  Bildplatzhalter: Screenshot eines Agents mit DOM- oder Accessibility-Tree
+<div v-click class="mt-6 text-lg opacity-75">
+Eine einfache Absicht wird zu vielen unsicheren Zwischenschritten.
 </div>
 
 <!--
-Wichtig: Nicht "Agents scrapen nur". Moderne Browser-Agents haben mehrere
-Signale. Die Herausforderung ist trotzdem, dass sie Bedeutung aus
-verschachtelten DOM-Bäumen, IDs und einer für Menschen optimierten Oberfläche
-rekonstruieren.
+Nicht "Agents scrapen nur". Moderne Agents nutzen mehrere Signale. Der Punkt:
+Bedeutung wird aus einer für Menschen gebauten Oberfläche rekonstruiert – Schritt
+für Schritt, jedes Mal neu.
 
-Timing: 3:00-5:00
+Timing: 4:30-5:30
 -->
 
 ---
@@ -143,42 +178,39 @@ layoutClass: gap-10
 transition: fade
 ---
 
-# Das funktioniert.
+# Das funktioniert
 
-<div class="mt-10 text-left text-xl">
+<div class="mt-8 text-left text-xl leading-relaxed">
 
-- Funktioniert ohne site-spezifische Integration
-- Erschliesst auch ältere Websites
+- Braucht keine Integration seitens der Seite
+- Funktioniert auch bei alten Seiten
 - Nutzt vorhandene Semantik und Accessibility
 
 </div>
 
 ::right::
 
-# Aber ineffizient und ungenau.
+# Aber teuer und unsicher
 
-<div class="mt-10 text-left text-xl">
+<div class="mt-8 text-left text-xl leading-relaxed">
 
-- Viele Zwischenschritte für eine einfache Absicht
-- Den Zustand nach jeder Aktion erneut auslesen
-- Mehrdeutige Controls interpretieren
-- Fachliche Bedeutung aus UI-Signalen rekonstruieren
+- Viele Schritte für eine einfache Absicht
+- Zustand nach jeder Aktion neu lesen
+- Mehrdeutige Controls, Fehlklicks
+- Bedeutung wird geraten, nicht gegeben
 
 </div>
 
-<div class="absolute bottom-10 left-0 right-0 text-center opacity-65">
-Gutes semantisches HTML und Accessibility bleiben unverzichtbar.
+<div class="absolute bottom-8 left-0 right-0 text-center opacity-70">
+Gutes semantisches HTML und Accessibility bleiben wichtig – für Menschen und für diese Agents.
 </div>
 
 <!--
-Nicht sagen, dass UI-Automation einfach "bricht": Der Agent liest die Seite
-immer wieder neu. Das kann funktionieren, ist aber ein ineffizienter Umweg
-und die Bedeutung der UI-Signale bleibt ungenau.
+UI-Automation bricht nicht einfach. Sie ist ein Umweg: ineffizient und ungenau.
+Wichtig für dieses Publikum: WebMCP ist kein Argument gegen Accessibility.
+Zugängliche Seiten helfen weiterhin Menschen und UI-basierten Agents.
 
-WebMCP ist kein Argument gegen Accessibility. Eine zugängliche Seite hilft
-Menschen und UI-automatisierenden Agents weiterhin.
-
-Timing: 5:00-7:00
+Timing: 5:30-6:30
 -->
 
 ---
@@ -187,60 +219,174 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Die Reibung</div>
-
-<div class="text-5xl leading-relaxed mt-6">
-UI-Automation zwingt einen Agenten,
-<span class="text-primary font-bold">die Absicht hinter einer menschlichen
-Oberfläche zu rekonstruieren.</span>
-</div>
-
-<div v-click class="text-2xl leading-relaxed mt-10 opacity-80">
-Was wäre, wenn die Anwendung ihre ausgewählten Fähigkeiten selbst beschreiben
-könnte?
+<div class="text-5xl leading-relaxed">
+Was, wenn die Seite ihre Fähigkeiten
+<span class="text-primary font-bold">selbst beschreibt</span> –
+statt sie erraten zu lassen?
 </div>
 
 <!--
-Das ist der Übergang. Nicht mit einer Definition anfangen, sondern mit der
-klaren Problemformulierung.
+Der Übergang. Kurz und ohne Definition. Die Frage öffnet WebMCP.
 
-Timing: 7:00-8:00
+Timing: 6:30-7:00
 -->
 
 ---
-layout: center
+layout: default
 class: text-left
 transition: slide-left
 ---
 
 <div class="text-sm tracking-widest uppercase opacity-55">Was ist WebMCP?</div>
 
-# Web Model<br>Context Protocol
+# Web Model Context Protocol
 
-<div class="mt-8 text-2xl leading-relaxed">
-  Eine vorgeschlagene <span class="text-primary font-bold">Web-Plattform-API</span>,
-  mit der eine laufende Website über <code>document.modelContext</code> ihre
-  Daten und Fähigkeiten als strukturierte Tools für Browser-Agents verfügbar
-  macht.
+<div class="mt-6 text-2xl leading-relaxed">
+Eine vorgeschlagene <span class="text-primary font-bold">Web-Plattform-API</span>.
+Die laufende Seite meldet über <code>document.modelContext</code> ihre Daten und
+erlaubten Funktionen als <span class="text-primary font-bold">Tools</span> an den Agent.
 </div>
 
-<div class="grid grid-cols-2 gap-6 mt-12 text-left">
+<div class="grid grid-cols-3 gap-5 mt-10 text-left">
   <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Woher kommt es?</div>
-    <div class="mt-3 opacity-80">Offene Arbeit der W3C Web Machine Learning Community Group; Chrome erprobt die API experimentell.</div>
+    <div class="font-bold text-primary">Discovery</div>
+    <div class="mt-2 opacity-80">Die Seite registriert Tools wie <code>filter_hikes</code>.</div>
   </div>
   <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Die Grundidee</div>
-    <div class="mt-3 opacity-80">Statt Screen-Scraping und geratenen DOM-Details beschreibt die Seite selbst Daten und erlaubte Funktionen.</div>
+    <div class="font-bold text-primary">JSON Schema</div>
+    <div class="mt-2 opacity-80">Explizite Ein- und Ausgaben statt geratener Felder.</div>
+  </div>
+  <div v-click class="rounded-xl border border-main/20 p-5">
+    <div class="font-bold text-primary">State</div>
+    <div class="mt-2 opacity-80">Agent und Seite teilen denselben sichtbaren Zustand.</div>
   </div>
 </div>
 
 <!--
-WebMCP steht für Web Model Context Protocol. Es ist ein offener Vorschlag aus der W3C Web Machine Learning Community Group, nicht der bestehende MCP-Standard und auch noch kein W3C Recommendation Standard. Die API hängt an document.modelContext.
+WebMCP = Web Model Context Protocol. Vorschlag aus der W3C Web Machine Learning
+Community Group. Kern: die Seite beschreibt Tools mit JSON-Schema; der Agent
+ruft sie auf, statt die UI zu rekonstruieren. Details zu Herkunft/Stand kommen
+gleich.
 
-Die Denkweise ist MCP-verwandt: Eine Anwendung beschreibt ihre Fähigkeiten als Tools. Der entscheidende Unterschied ist der Ausführungsort - die laufende Seite im Browser.
+Timing: 7:00-8:00
+-->
 
-Timing: 8:00-10:00
+---
+layout: two-cols
+layoutClass: gap-12
+transition: fade
+---
+
+# Dieselbe Absicht, mit WebMCP
+
+<div class="mt-8 text-left">
+
+## Nutzerwunsch
+
+> Mittelschwere Wanderungen in der Zentralschweiz, 8–14 km, mindestens 500 Höhenmeter, höchstens vier Stunden.
+
+</div>
+
+::right::
+
+<div class="mt-8 text-left text-lg leading-relaxed">
+
+## Was passiert
+
+1. Agent ruft `filter_hikes` mit strukturierten Werten auf
+2. Filter-Chips ändern sich sichtbar
+3. Resultatzahl aktualisiert sich
+4. Karten bleiben die überprüfbare Arbeitsfläche
+
+</div>
+
+<div class="mt-6">
+  <Placeholder kind="image" h="9rem"
+    label="Screenshot: Trailfolk nach dem Tool-Aufruf – gesetzte Filter-Chips und Resultate" />
+</div>
+
+<!--
+Live-Demo WebMCP. Ein Aufruf statt vieler Klicks. Der Vorher/Nachher-Effekt in
+der UI ist der Kern: der Zustand bleibt sichtbar und prüfbar.
+
+Timing: 8:00-10:30
+-->
+
+---
+layout: two-cols
+layoutClass: gap-12
+transition: slide-up
+---
+
+# Woher kommt es? Wo steht es?
+
+<div class="mt-8 text-left text-lg leading-relaxed">
+
+## Herkunft
+
+- W3C Web Machine Learning Community Group
+- Draft Community Group Report
+- Kein W3C Recommendation Standard
+
+</div>
+
+::right::
+
+<div class="mt-8 text-left text-lg leading-relaxed">
+
+## Implementierungen
+
+- Chrome 149+: Origin Trial + `chrome://flags`
+- Edge: Origin Trial
+- Erste Agent-Clients dokumentiert
+
+<div class="mt-6 opacity-75">
+Snapshot – vor dem Vortrag prüfen. Für Experimente ja, für breite Produktion noch vorsichtig.
+</div>
+
+</div>
+
+<!--
+Ehrlich einordnen: experimentell, Community-Group-Draft, kein Standard. Chrome
+treibt es über Origin Trials. Angaben ändern sich schnell – Folie kurz vor der
+Konferenz aktualisieren.
+
+Timing: 10:30-11:30
+-->
+
+---
+layout: default
+transition: slide-left
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Under the hood</div>
+
+# Wie funktioniert WebMCP?
+
+```mermaid {scale: 0.62}
+sequenceDiagram
+    participant U as Nutzer
+    participant A as Browser-Agent
+    participant P as Web-App (Tools)
+    participant S as Backend
+
+    U->>A: Wunsch in Worten
+    A->>P: registriertes Tool aufrufen
+    P->>S: bestehende API/Logik
+    S-->>P: Daten
+    P-->>A: Tool-Ergebnis (strukturiert)
+    P-->>U: UI aktualisiert sich sichtbar
+```
+
+<div class="mt-6 text-lg opacity-75">
+Das Tool läuft <span class="text-primary font-bold">in der Seite</span> – mit deren Session, Zustand und UI.
+</div>
+
+<!--
+Der wichtigste Punkt: das Tool wird in der laufenden Seite ausgeführt, nicht in
+einem separaten Backend-Connector. Login, Kontext und UI bleiben bei der Seite.
+
+Timing: 11:30-12:30
 -->
 
 ---
@@ -249,31 +395,32 @@ class: tools-api-slide
 transition: slide-up
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Zwei APIs</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Der Code – zwei Wege</div>
 
-# Tools aus JavaScript<br>oder HTML
+# Imperativ oder deklarativ
 
 <div class="grid grid-cols-2 gap-8 mt-8 text-left">
   <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-6">
-    <div class="text-primary font-bold text-xl">Imperativ</div>
-    <code class="block mt-5 text-sm">document.modelContext<br>.registerTool(...)</code>
-    <div class="mt-6 text-lg">Für eigene Client-Logik, Navigation, Zustand und komplexe Abläufe.</div>
+    <div class="text-primary font-bold text-xl">Imperativ (JS)</div>
+    <code class="block mt-4 text-sm">document.modelContext<br>.registerTool({ … })</code>
+    <div class="mt-5 text-lg">Für eigene Logik, Navigation, Zustand, komplexe Abläufe.</div>
   </div>
   <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-6">
-    <div class="text-primary font-bold text-xl">Deklarativ</div>
-    <code class="block mt-5 text-sm">&lt;form toolname="..."<br>tooldescription="..."&gt;</code>
-    <div class="mt-6 text-lg">Für bestehende Formulare: Der Browser leitet Tool und Schema aus HTML ab.</div>
+    <div class="text-primary font-bold text-xl">Deklarativ (HTML)</div>
+    <code class="block mt-4 text-sm">&lt;form toolname="…"<br>tooldescription="…"&gt;</code>
+    <div class="mt-5 text-lg">Für bestehende Formulare – der Browser leitet Tool und Schema ab.</div>
   </div>
 </div>
 
 <div v-click class="mt-8 text-xl opacity-75">
-Beide Varianten halten die Interaktion sichtbar in der Website.
+Trailfolk nutzt beides: imperativ für die Filter-Logik, deklarativ für ein einfaches Formular.
 </div>
 
 <!--
-WebMCP hat zwei Zugänge. Die imperative API definiert Tools mit JavaScript - etwa für komplexe, zustandsbehaftete Anwendungen wie Trailfolk. Die deklarative API annotiert vorhandene HTML-Formulare über toolname und tooldescription; der Browser erzeugt daraus ein strukturiertes Tool.
+Überblick vor dem konkreten Code. Imperativ für zustandsbehaftete Apps wie
+Trailfolk, deklarativ für vorhandene HTML-Formulare.
 
-Timing: 10:00-12:00
+Timing: 12:30-13:30
 -->
 
 ---
@@ -281,68 +428,149 @@ layout: default
 transition: fade
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Abgrenzung</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Imperativ · JavaScript</div>
 
-# MCP und WebMCP<br>arbeiten zusammen.
+# <code>filter_hikes</code> als Tool
 
-<div class="mt-8 text-left text-lg">
+```js {all|2-3|4-13|14|15-18}
+await document.modelContext.registerTool({
+  name: 'filter_hikes',
+  description: 'Filtert Wanderungen nach Region, Schwierigkeit, Distanz, Dauer und Höhenmetern.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      region: { type: 'string', enum: ['zentralschweiz', 'tessin', 'berner-oberland'] },
+      difficulty: { type: 'string', enum: ['leicht', 'mittel', 'schwer'] },
+      maxDistanceKm: { type: 'number', description: 'Maximale Distanz in km' },
+      maxDurationH: { type: 'number', description: 'Maximale Gehzeit in Stunden' },
+      minElevation: { type: 'number', description: 'Minimale Höhenmeter' },
+    },
+    required: ['region'],
+  },
+  annotations: { readOnlyHint: true },
+  execute: async (args) => {
+    const hikes = applyFilters(args)       // bestehende App-Logik
+    return `${hikes.length} Wanderungen gefunden.`
+  },
+})
+```
+
+<!--
+Der Kern für Entwickler: Name, Description, inputSchema (Vertrag), annotations,
+execute. execute ruft dieselbe Logik wie die UI auf. readOnlyHint sagt: dieses
+Tool ändert keinen Zustand.
+
+Timing: 13:30-15:00
+-->
+
+---
+layout: default
+transition: slide-left
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Deklarativ · HTML</div>
+
+# Ein Formular wird zum Tool
+
+```html {all|2-3|5-9|10-11}
+<form
+  toolname="subscribe_trail_updates"
+  tooldescription="Meldet den Nutzer für Wander-Updates einer Region an."
+>
+  <select name="region" toolparamdescription="Wanderregion">
+    <option value="zentralschweiz">Zentralschweiz</option>
+    <option value="tessin">Tessin</option>
+  </select>
+  <input name="email" type="email"
+         toolparamdescription="E-Mail-Adresse für Updates" />
+  <button type="submit">Abonnieren</button>
+</form>
+```
+
+<div class="mt-6 text-lg opacity-75">
+Kein JavaScript nötig: Der Browser baut das JSON-Schema aus den Feldern. <code>toolautosubmit</code> steuert, ob der Agent selbst absendet.
+</div>
+
+<!--
+Deklarativ: toolname/tooldescription am Formular, toolparamdescription pro Feld.
+Der Browser synthetisiert das Schema. Gut für bestehende Formulare als
+Progressive Enhancement.
+
+Timing: 15:00-16:00
+-->
+
+---
+layout: two-cols
+layoutClass: gap-10
+transition: fade
+---
+
+# Schema, Annotations, Ownership
+
+<div class="mt-6 text-left text-lg leading-relaxed">
+
+- Das **Schema** ist ein API-Vertrag – validieren, begrenzen, benennen
+- **Annotations** sind Hinweise für Agent und Browser:
+  - `readOnlyHint` – nur lesen
+  - `consequentialHint` – braucht Bestätigung
+  - `untrustedContentHint` – Ausgabe sanitizen
+
+</div>
+
+::right::
+
+<div class="mt-6 text-left text-lg leading-relaxed">
+
+## Wer besitzt die Tools?
+
+- Die Seite registriert sie – und behält Login, Kontext und UI
+- Sensible Aktionen: Bestätigung erzwingen
+- So klein wie möglich schneiden
+
+<div class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-4">
+Frage: Würden wir dieses Tool auch einem fremden Entwickler geben?
+</div>
+
+</div>
+
+<!--
+Für dieses Publikum der Engineering-Kern: Tool-Schema ist ein API-Vertrag mit
+Produkt- und Security-Folgen. Annotations helfen dem Agent, sicher zu handeln,
+aber Seite und Client bleiben verantwortlich. Ownership bleibt bei der Seite.
+
+Timing: 16:00-17:30
+-->
+
+---
+layout: default
+transition: slide-up
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Aber es gibt doch MCP?</div>
+
+# MCP und WebMCP
+
+<div class="mt-6 text-left text-lg">
 
 | | MCP / OpenAPI im Backend | WebMCP im Browser |
 |---|---|---|
-| Tool lebt bei | Service oder API | Laufender Web-App |
-| Gut für | System- und Server-Workflows | UI-, Session- und Kontext-Workflows |
-| Benutzeroberfläche | Kann umgangen werden | Bleibt sichtbar und synchron |
-| Beispiel | Flug suchen, Zahlung auslösen | Form ausfüllen, Filter setzen, Design bearbeiten |
+| Tool läuft bei | Service oder API | laufender Web-App |
+| Gut für | Server- und System-Workflows | UI-, Session- und Kontext-Workflows |
+| UI | kann umgangen werden | bleibt sichtbar und synchron |
+| Beispiel | Zahlung auslösen, Daten abfragen | Filter setzen, Formular ausfüllen |
 
 </div>
 
-<div class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-5 text-xl text-left">
-WebMCP ersetzt keine Backend-Integration. Es ergänzt sie dort, wo der
-Browser-Kontext Teil der Aufgabe ist.
-</div>
-
-<!--
-MCP und WebMCP sind keine konkurrierenden Optionen. Wenn ein Dienst eine serverseitige Operation für einen Agenten bereitstellt, ist MCP oder OpenAPI passend. WebMCP setzt dort an, wo die bereits geöffnete Webseite, ihr Zustand, die UI und die Kontrolle des Nutzers wichtig sind.
-
-Timing: 12:00-14:00
--->
-
----
-layout: default
-transition: slide-left
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Gemeinsamer Kontext</div>
-
-<div class="mt-3 text-5xl font-bold tracking-tight leading-tight">
-  Eine Seite. <span class="text-primary">Ein Zustand.</span>
-</div>
-
-```mermaid {scale: 0.62}
-sequenceDiagram
-    participant U as Nutzer
-    participant A as Browser-Agent
-    participant P as Web-App
-    participant S as Backend
-
-    U->>A: Wunsch
-    A->>P: Tool aufrufen
-    P->>S: Bestehende API
-    S-->>P: Daten
-    P-->>A: Tool-Ergebnis
-    P-->>U: UI aktualisiert
-```
-
-<div class="mt-8 text-lg opacity-70">
-Mensch, Agent und Seite arbeiten mit demselben sichtbaren Zustand.
+<div class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-4 text-xl text-left">
+WebMCP ersetzt kein Backend-MCP. Es ergänzt es dort, wo der Browser-Kontext Teil der Aufgabe ist.
 </div>
 
 <!--
-Das ist der wichtigste Unterschied zu einem reinen Backend-Connector.
-Die Seite kann ihren Login, ihren aktuellen Kontext und ihre UI weiter selbst
-besitzen. Backend-MCP und OpenAPI bleiben für reine Server-Workflows sinnvoll.
+Häufige Frage: Unterschied zu MCP? Kein Entweder-oder. Serverseitige Operationen
+→ MCP/OpenAPI. Wenn die geöffnete Seite, ihr Zustand und die Nutzerkontrolle
+zählen → WebMCP.
 
-Timing: 14:00-16:00
+Timing: 17:30-18:30
 -->
 
 ---
@@ -351,257 +579,23 @@ class: text-left
 transition: fade
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Wann ist WebMCP sinnvoll?</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Wie geht es weiter?</div>
 
-# Wenn der Browser-<br>Kontext zählt.
-
-<div class="grid grid-cols-2 gap-5 mt-8 text-left">
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Support</div>
-    <div class="mt-2">Komplexe Formulare korrekt finden und vorbefüllen.</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Buchungen</div>
-    <div class="mt-2">Mehrere Reisende, Termine und sichtbare Bestätigungsschritte.</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Interaktive Anwendungen</div>
-    <div class="mt-2">Filtern, planen, gestalten oder konfigurieren mit geteiltem Zustand.</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Entwickler-Tools</div>
-    <div class="mt-2">Diagnosen oder klar begrenzte Aktionen hinter verschachtelten Menüs.</div>
-  </div>
+<div class="text-4xl leading-relaxed mt-6">
+Experimentell heute – aber die
+<span class="text-primary font-bold">Design-Frage</span> ist schon jetzt nützlich:
 </div>
 
-<div class="mt-8 text-xl opacity-75">
-Trailfolk ist ein kleines Beispiel für den dritten Fall.
+<div v-click class="text-3xl leading-relaxed mt-10 text-primary font-bold">
+Welche Fähigkeiten eurer Web-App sind klar abgegrenzt, zustandsbehaftet und
+wertvoll genug, um sie einem Agenten kontrolliert anzubieten?
 </div>
 
 <!--
-Diese vier Cases stammen aus der Chrome-Dokumentation: Support-Formulare, komplexe Reisebuchungen, agentische Interaktionen in nutzerorientierten Oberflächen und Diagnosen in Entwickler-Einstellungen.
+Nicht auf eine Prognose einlassen. Der Mehrwert für das Publikum ist die
+Design-Frage, die sie heute auf ihre eigenen Apps anwenden können.
 
-Das hilft, Trailfolk richtig einzuordnen: nicht der Hauptgrund für WebMCP, sondern ein anschauliches Beispiel für gemeinsame Interaktion in einer zustandsbehafteten UI.
-
-Timing: 16:00-18:00
--->
-
----
-layout: center
-class: text-left
-transition: slide-up
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Live-Demo</div>
-
-<div class="text-5xl mt-4">Trailfolk</div>
-
-<div class="grid grid-cols-2 gap-8 mt-12">
-  <div v-click class="rounded-xl border border-main/20 p-7">
-    <div class="text-primary font-bold">Entdecken</div>
-    <div class="mt-3 text-xl">Filter sichtbar setzen</div>
-    <code class="block mt-6 opacity-75">filter_hikes</code>
-    <code class="block mt-2 opacity-75">reset_hike_filters</code>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-7">
-    <div class="text-primary font-bold">Inspiration</div>
-    <div class="mt-3 text-xl">Empfehlungen begründen</div>
-    <code class="block mt-6 opacity-75">recommend_hikes</code>
-    <code class="block mt-2 opacity-75">show_recommendation_summary</code>
-  </div>
-</div>
-
-<div class="mt-10 text-xl opacity-75">
-Die verfügbaren Tools folgen dem sichtbaren Kontext der Anwendung.
-</div>
-
-<div class="mt-8 h-24 rounded-xl border-2 border-dashed border-primary/35 bg-primary/5 flex items-center justify-center text-center text-sm opacity-75">
-  Bildplatzhalter: Trailfolk-Startansicht mit den Tabs "Entdecken" und "Inspiration"
-</div>
-
-<!--
-Zur Live-Demo wechseln. Der Demo-Teil ist bewusst ein erster Draft:
-Welche Prompts letztlich gezeigt werden, kann später angepasst werden.
-Der Tab-Wechsel ist aber ein starkes Signal: Die Tool-Oberfläche kann zum
-aktuellen Kontext passen.
-
-Timing: 16:00-17:00
--->
-
----
-layout: two-cols
-layoutClass: gap-12
-transition: fade
----
-
-# Sag, was du willst.
-
-<div class="mt-8 text-left">
-
-## Nutzerwunsch
-
-> Filtere auf mittelschwere Wanderungen in der Zentralschweiz, zwischen
-> 8 und 14 Kilometern, mit mindestens 500 Höhenmetern und höchstens vier
-> Stunden Gehzeit.
-
-</div>
-
-::right::
-
-<div class="mt-8 text-left">
-
-## Sichtbar machen
-
-1. Tool-Aufruf mit strukturierten Werten
-2. Filter-Chips ändern sich
-3. Resultatzahl aktualisiert sich
-4. Passende Wanderkarten bleiben sichtbar
-
-<div class="mt-10 p-4 rounded bg-primary/10">
-Die UI ist nicht nur ein Transportmittel. Sie ist die überprüfbare
-Arbeitsfläche für den Nutzer.
-</div>
-
-<div class="mt-6 h-24 rounded-xl border-2 border-dashed border-primary/35 bg-primary/5 flex items-center justify-center text-center text-sm opacity-75">
-  Bildplatzhalter: Trailfolk nach dem Tool-Aufruf mit sichtbaren Filter-Chips und Resultaten
-</div>
-
-</div>
-
-<!--
-Live-Demo: Start auf "Entdecken". Das konkrete Prompt kann noch geändert
-werden. Wichtig ist der Vorher-/Nachher-Effekt in der UI.
-
-Die aktuelle Trailfolk-API unterstützt minElevation, nicht maxElevation.
-
-Timing: 17:00-22:00
--->
-
----
-layout: two-cols
-layoutClass: gap-12
-transition: slide-left
----
-
-# Von Treffern<br>zu Empfehlungen.
-
-<div class="mt-8 text-left">
-
-## Nutzerwunsch
-
-> Empfiehl mir zwei mittelschwere Wanderungen in der Zentralschweiz,
-> maximal vier Stunden, mit einem krönenden Dessert danach.
-
-</div>
-
-::right::
-
-<div class="mt-8 text-left">
-
-## Ablauf
-
-1. Zum Tab **Inspiration** wechseln
-2. `recommend_hikes` liefert bis zu drei Treffer
-3. Der Agent ergänzt Gründe
-4. `show_recommendation_summary` schreibt sie an die Karten
-
-<div class="mt-10 p-4 rounded bg-primary/10">
-Der Agent gibt nicht nur Text zurück. Er versetzt die Anwendung in einen
-verständlichen, sichtbaren Zustand.
-</div>
-
-<div class="mt-6 h-24 rounded-xl border-2 border-dashed border-primary/35 bg-primary/5 flex items-center justify-center text-center text-sm opacity-75">
-  Bildplatzhalter: Trailfolk-Empfehlungskarten mit AI-Begründungen
-</div>
-
-</div>
-
-<!--
-Live-Demo: Erst den Tab "Inspiration" öffnen, da die Tools kontextabhängig
-registriert werden. Diesen zweiten Teil nur zeigen, wenn der erste stabil
-gelaufen ist und genug Zeit bleibt.
-
-Timing: 22:00-27:00
--->
-
----
-layout: center
-class: text-left
-transition: slide-up
----
-
-# Tools sind APIs.
-
-<div class="grid grid-cols-2 gap-8 mt-10">
-  <div v-click>
-    <div class="text-primary font-bold text-xl mb-4">Ein gutes Tool</div>
-    <ul class="text-lg leading-relaxed">
-      <li>hat eine fachliche, begrenzte Aufgabe</li>
-      <li>fordert nur notwendige Parameter an</li>
-      <li>validiert Eingaben klar</li>
-      <li>liefert fachlichen Zustand zurück</li>
-      <li>hat erkennbare Nebenwirkungen</li>
-    </ul>
-  </div>
-  <div v-click>
-    <div class="text-primary font-bold text-xl mb-4">Trailfolk als Beispiel</div>
-    <ul class="text-lg leading-relaxed">
-      <li>Distanz, Dauer und Anzahl sind begrenzt</li>
-      <li>Schwierigkeit und Region sind kontrollierte Werte</li>
-      <li>Empfehlungen sind auf drei begrenzt</li>
-      <li>Begründungen referenzieren bekannte Wanderungen</li>
-    </ul>
-  </div>
-</div>
-
-<div class="mt-12 text-2xl">
-Würden wir dieselbe Schnittstelle auch einem externen Entwickler guten
-Gewissens geben?
-</div>
-
-<!--
-Jetzt den Engineering-Mehrwert herausarbeiten. Das Tool-Schema ist nicht nur
-LLM-Konfiguration, sondern ein API-Vertrag mit Produkt- und Security-Folgen.
-
-Timing: 27:00-30:00
--->
-
----
-layout: two-cols
-layoutClass: gap-12
-transition: fade
----
-
-# Kein Freipass<br>für Agents.
-
-<div class="mt-8 text-left text-xl">
-
-- Kein Ersatz für ein zugängliches, gut bedienbares UI
-- Kein Ersatz für Backend-MCP oder OpenAPI
-- Kein Grund, unausgereifte Agenten unbeaufsichtigt handeln zu lassen
-- Kein Versprechen für breite Browser-Verfügbarkeit
-
-</div>
-
-::right::
-
-# Vertrauen<br>braucht Grenzen.
-
-<div class="mt-8 text-left text-xl">
-
-- Welche Aktionen brauchen Bestätigung?
-- Wie klein kann ein Tool-Zugriff sein?
-- Was ist untrusted Content?
-- Welche Daten darf ein Tool verarbeiten?
-- Wie funktioniert ein guter Fallback?
-
-</div>
-
-<!--
-Ein bewusst nüchterner Moment. Für ein Filter-Tool sind die Risiken gering,
-für Kauf, Buchung, Löschen oder Kontoänderungen wesentlich höher.
-
-Timing: 30:00-33:00
+Timing: 18:30-19:15
 -->
 
 ---
@@ -610,133 +604,22 @@ class: text-left
 transition: slide-left
 ---
 
-# Verantwortung<br>ist ein Feature.
+# Was bleibt
 
-<div class="grid grid-cols-3 gap-5 mt-12 text-center">
-  <div v-click class="rounded-xl border border-main/20 p-6">
-    <div class="font-bold text-primary">Read</div>
-    <div class="mt-3">Suchen, filtern, erklären</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-6">
-    <div class="font-bold text-primary">Write</div>
-    <div class="mt-3">Speichern, ändern, teilen</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-6">
-    <div class="font-bold text-primary">Consequential</div>
-    <div class="mt-3">Kaufen, buchen, löschen</div>
-  </div>
-</div>
+<div class="mt-10 text-2xl leading-loose">
 
-<div class="mt-12 text-2xl leading-relaxed">
-Je folgenreicher ein Tool, desto klarer müssen Berechtigung, Bestätigung,
-Rückmeldung und Abbruch sein.
-</div>
+<div v-click><span class="text-primary font-bold">1.</span> WebMCP macht ausgewählte Web-Fähigkeiten explizit, statt sie aus der UI raten zu lassen.</div>
 
-<!--
-WebMCP kennt Tool-Annotationen und das Thema consequential actions ist im
-Entwurf sichtbar. Aber die Anwendung und der Browser-Agent bleiben für die
-konkreten Schutzmechanismen verantwortlich.
+<div v-click><span class="text-primary font-bold">2.</span> Es ergänzt Backend-MCP, APIs, Accessibility und menschliche Kontrolle – es ersetzt sie nicht.</div>
 
-Timing: 33:00-35:00
--->
-
----
-layout: two-cols
-layoutClass: gap-12
-transition: slide-up
----
-
-# Experiment<br>mit Rückenwind.
-
-<div class="mt-8 text-left">
-
-## Spezifikation
-
-**Draft Community Group Report**
-
-W3C Web Machine Learning Community Group
-
-<div class="mt-8 opacity-75">
-Kein W3C Recommendation Standard.<br>
-Kein formaler Recommendation Track.
-</div>
-
-</div>
-
-::right::
-
-<div class="mt-8 text-left">
-
-## Implementierungen
-
-- Chrome 149: Origin Trial
-- Edge 150: Origin Trial
-- Brave Leo: experimentell dokumentiert
-- ChatGPT Desktop: dokumentiert
-
-<div class="mt-8 opacity-75">
-Für Experimente: ja.<br>
-Für breite Produktionsannahmen: noch vorsichtig.
-</div>
+<div v-click><span class="text-primary font-bold">3.</span> Der Nutzen hängt an gutem Tool-Design, klaren Grenzen und sichtbarer UI.</div>
 
 </div>
 
 <!--
-Diese Folie unmittelbar vor der Konferenz aktualisieren. Die Angaben sind ein
-Snapshot vom 10. September 2026 und verändern sich bei experimentellen
-Browser-APIs schnell.
+Drei Kernaussagen zum Mitnehmen.
 
-Timing: 35:00-37:00
--->
-
----
-layout: center
-class: text-left
-transition: fade
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Ausblick</div>
-
-<div class="text-3xl leading-relaxed mt-6">
-Vielleicht ist das nicht die wichtigste Frage.
-</div>
-
-<div v-click class="text-4xl leading-relaxed mt-12 text-primary font-bold">
-Welche Fähigkeiten eurer Web-App sind wertvoll, klar abgegrenzt und
-zustandsbehaftet genug, dass ihr sie einem Agenten kontrolliert anbieten
-möchtet?
-</div>
-
-<!--
-Nicht auf die Prognose einlassen. Der Wert für das Publikum ist die
-Design-Frage, die sie schon heute auf ihre Anwendungen übertragen können.
-
-Timing: 37:00-38:30
--->
-
----
-layout: center
-class: text-left
-transition: slide-left
----
-
-# Was bleibt?
-
-<div class="mt-12 text-2xl leading-loose">
-
-<div v-click><span class="text-primary font-bold">1.</span> WebMCP macht ausgewählte
-Web-Fähigkeiten explizit, statt sie aus der UI erraten zu lassen.</div>
-
-<div v-click><span class="text-primary font-bold">2.</span> Es ergänzt Backend-MCP,
-APIs, Accessibility und menschliche Kontrolle - es ersetzt sie nicht.</div>
-
-<div v-click><span class="text-primary font-bold">3.</span> Der Erfolg hängt an
-gutem Tool-Design, klaren Grenzen und verantwortungsvoller UX.</div>
-
-</div>
-
-<!--
-Timing: 38:30-39:30
+Timing: 19:15-19:45
 -->
 
 ---
@@ -745,19 +628,19 @@ class: text-center
 transition: fade
 ---
 
-# Nicht nur Buttons zeigen.
+# Danke – Fragen?
 
-<div class="text-4xl text-primary font-bold mt-10">
-Bewusst Fähigkeiten anbieten.
+<div class="text-3xl text-primary font-bold mt-8">
+Nicht nur Buttons zeigen, sondern Fähigkeiten anbieten.
 </div>
 
 <div class="mt-16 text-sm opacity-60">
-Quellen: webmachinelearning.github.io/webmcp · github.com/webmachinelearning/webmcp
+Quellen: webmachinelearning.github.io/webmcp · developer.chrome.com/docs/ai/webmcp · github.com/browser-use/web-ui
 </div>
 
 <!--
-Danke. Bei Fragen auf die Demo, Tool-Design oder den experimentellen
-Spezifikationsstand eingehen.
+Danke und Übergang zu den 5 Minuten Fragen. Bei Bedarf auf Demo, Tool-Design,
+Security oder Spezifikationsstand eingehen.
 
-Timing: 39:30-40:00
+Timing: 19:45-20:00 (+ 5 min Q&A)
 -->

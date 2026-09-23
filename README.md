@@ -40,6 +40,7 @@ Slidev oeffnet die Praesentation standardmaessig im Browser. Die Slides liegen i
 | [`slides.md`](./slides.md) | Slides, Frontmatter und Speaker Notes |
 | [`styles/index.css`](./styles/index.css) | Dunkles WebMCP-Theme und globale Typografie |
 | [`components/global-top.vue`](./components/global-top.vue) | Fortschrittsanzeige am oberen Rand |
+| [`components/Placeholder.vue`](./components/Placeholder.vue) | Platzhalter fuer Bilder, Diagramme und Aufzeichnungen |
 | [`global-top.vue`](./global-top.vue) | Von Slidev erwarteter Einstiegspunkt fuer die globale Komponente |
 | [`analysis/abstract.md`](./analysis/abstract.md) | Eingereichtes Session-Abstract |
 
@@ -47,7 +48,9 @@ Slidev oeffnet die Praesentation standardmaessig im Browser. Die Slides liegen i
 
 - Die Fortschrittsanzeige erscheint im Praesentations- und Fullscreen-Modus,
   wird beim Print-/PDF-Export aber ausgeblendet.
-- Einige Folien enthalten Bildplatzhalter fuer die Trailfolk-Live-Demo.
+- Das Deck ist auf 20 Minuten Vortrag plus 5 Minuten Fragen ausgelegt.
+- Bild-, Diagramm- und Aufzeichnungsplatzhalter (`<Placeholder />`) markieren
+  Stellen, an denen noch Grafiken oder Demo-Screenshots eingesetzt werden.
 - WebMCP ist zum Zeitpunkt der Praesentation ein experimenteller W3C Community
   Group Draft. Aussagen zur Browser-Unterstuetzung sollten vor dem Vortrag
   aktualisiert werden.
