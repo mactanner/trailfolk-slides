@@ -56,13 +56,6 @@
   background: rgb(255 255 255 / 6%);
 }
 
-.intent-prompt {
-  border: 4px solid var(--css-blue);
-  border-radius: 1rem;
-  background: rgb(0 164 224 / 10%);
-  box-shadow: 0 0 0 6px rgb(0 164 224 / 14%);
-}
-
 .dark .slidev-layout {
   background:
     radial-gradient(circle at 92% 8%, rgb(0 164 224 / 15%), transparent 23rem),

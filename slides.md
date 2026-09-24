@@ -41,7 +41,7 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="intent-prompt mt-12 px-10 py-9 text-3xl leading-relaxed">
+<div class="mt-12 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
   „Ich suche eine mittelschwere Wanderung in der Zentralschweiz – rund 15 km und maximal sechs Stunden.“
 </div>
 
@@ -87,9 +87,10 @@ Eine kleine Schweizer Wander-App.
 </div>
 
 <!--
-Live-Demo (kurz): Trailfolk aus Sicht eines Menschen. Filter setzen, Resultate
-sehen, eine Wanderung öffnen. Nur so viel zeigen, dass klar wird, wie die App
-funktioniert.
+Trailfolk kurz aus Sicht eines Menschen vorstellen: Filter setzen, Resultate
+sehen, eine Wanderung öffnen. Nur so viel zeigen, dass die App verständlich ist.
+
+Der Screenshot öffnet auf Klick die lokale Trailfolk-App.
 
 Timing: 1:00-3:00
 -->
@@ -100,27 +101,26 @@ class: text-left
 transition: fade
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Wovon reden wir?</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Der nächste Schritt</div>
 
 <div class="text-5xl leading-relaxed mt-6">
-Ein <span class="text-primary font-bold">Web Agent</span> ist Software, die im
-Browser Seiten liest und bedient.
+Und wie gehen hier <span class="text-primary font-bold">Web Agents</span> vor?
 </div>
 
-<div v-click class="mt-8 text-xl opacity-75">
-Nicht nur antworten, sondern klicken, tippen und den Seitenzustand auswerten –
-im Auftrag eines Nutzers.
+<div class="mt-6 text-lg opacity-70">
+Web Agents lesen und bedienen Websites im Browser – im Auftrag eines Nutzers.
 </div>
 
-<div class="mt-8">
+<div class="mt-10">
   <Placeholder kind="video" h="10rem"
     label="Aufzeichnung: Browser-Use Agent bedient Trailfolk (github.com/browser-use/web-ui)" />
 </div>
 
 <!--
-Begriff klären, bevor die Technik kommt. Web Agent = KI-gestützte Software, die
-im Browser handelt. Beispiel als Aufzeichnung zeigen (Browser Use), um Zeit und
-Flakiness zu vermeiden.
+Nach der Trailfolk-Einordnung folgt die Leitfrage: Wie setzt ein Web Agent den
+Nutzerwunsch heute um? Die nächste Folie beantwortet sie Schritt für Schritt.
+
+Optional die Browser-Use-Aufzeichnung kurz zeigen, um die Frage zu verankern.
 
 Timing: 3:00-4:30
 -->
@@ -215,7 +215,7 @@ transition: slide-up
 ---
 
 <div class="text-5xl leading-relaxed">
-Was, wenn die Seite ihre Fähigkeiten
+Was, wenn die Webseite ihre Fähigkeiten
 <span class="text-primary font-bold">selbst beschreibt</span> –
 statt sie erraten zu lassen?
 </div>
@@ -232,14 +232,13 @@ class: text-left
 transition: slide-left
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Was ist WebMCP?</div>
 
-# Web Model Context Protocol
+# Web Model Context Protocol (WebMCP)
 
 <div class="mt-6 text-2xl leading-relaxed">
-Eine vorgeschlagene <span class="text-primary font-bold">Web-Plattform-API</span>.
-Die laufende Seite meldet über <code>document.modelContext</code> ihre Daten und
-erlaubten Funktionen als <span class="text-primary font-bold">Tools</span> an den Agent.
+Ein Vorschlag für eine neue <span class="text-primary font-bold">Web-Plattform-API</span>.
+Die aktive Webseite nutzt <code>document.modelContext</code>, um ihre Daten und erlaubten Funktionen als <span class="text-primary font-bold">Tools</span> für den Agenten zu registrieren.
+
 </div>
 
 <div class="grid grid-cols-3 gap-5 mt-10 text-left">
@@ -255,6 +254,12 @@ erlaubten Funktionen als <span class="text-primary font-bold">Tools</span> an de
     <div class="font-bold text-primary">State</div>
     <div class="mt-2 opacity-80">Agent und Seite teilen denselben sichtbaren Zustand.</div>
   </div>
+</div>
+
+<div v-click class="absolute bottom-6 right-8 text-sm opacity-60">
+  WebMCP-Spezifikation: <a href="https://webmachinelearning.github.io/webmcp" target="_blank" rel="noopener noreferrer">
+https://webmachinelearning.github.io/webmcp
+  </a>
 </div>
 
 <!--
