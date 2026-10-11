@@ -42,12 +42,9 @@ transition: slide-up
 ---
 
 <div class="mt-12 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
-  „Ich suche eine mittelschwere Wanderung in der Zentralschweiz – rund 15 km und maximal sechs Stunden.“
+  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland – rund 15 km und mindestens 1000 Meter Aufstieg.“
 </div>
 
-<div v-click class="mt-10 text-2xl opacity-75">
-  Eine klare Absicht für Menschen. Für Software beginnt daraus erst eine Reihe von Klicks, Feldern und Listen.
-</div>
 
 <!--
 Der Hook ist ein konkreter Nutzerwunsch. Für Menschen ist die Absicht klar;
@@ -101,7 +98,6 @@ class: text-left
 transition: fade
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Der nächste Schritt</div>
 
 <div class="text-5xl leading-relaxed mt-6">
 Und wie gehen hier <span class="text-primary font-bold">Web Agents</span> vor?
@@ -111,16 +107,25 @@ Und wie gehen hier <span class="text-primary font-bold">Web Agents</span> vor?
 Web Agents lesen und bedienen Websites im Browser – im Auftrag eines Nutzers.
 </div>
 
-<div class="mt-10">
-  <Placeholder kind="video" h="10rem"
-    label="Aufzeichnung: Browser-Use Agent bedient Trailfolk (github.com/browser-use/web-ui)" />
+<div v-click class="mt-30">
+  <div class="grid grid-cols-3 gap-5 mt-3">
+    <div class="rounded-xl border border-primary/30 bg-white p-5">
+      <img src="./images/logo-browser-use.png" alt="Browser Use" class="w-full h-12 object-contain" />
+    </div>
+    <div class="rounded-xl border border-primary/30 bg-white p-5">
+      <img src="./images/logo-skyvern.png" alt="Skyvern" class="w-full h-12 object-contain" />
+    </div>
+    <div class="rounded-xl border border-primary/30 bg-white p-5">
+      <img src="./images/logo-stagehand.png" alt="Stagehand" class="w-full h-12 object-contain" />
+    </div>
+  </div>
 </div>
 
 <!--
 Nach der Trailfolk-Einordnung folgt die Leitfrage: Wie setzt ein Web Agent den
-Nutzerwunsch heute um? Die nächste Folie beantwortet sie Schritt für Schritt.
-
-Optional die Browser-Use-Aufzeichnung kurz zeigen, um die Frage zu verankern.
+Nutzerwunsch heute um? Browser Use, Skyvern und Stagehand zeigen: Dafür gibt es
+bereits mehrere Angebote. Die nächste Folie beantwortet das Vorgehen Schritt
+für Schritt.
 
 Timing: 3:00-4:30
 -->
@@ -147,8 +152,13 @@ transition: slide-left
 ::right::
 
 <div class="mt-4">
-  <Placeholder kind="diagram" h="13rem"
-    label="Diagramm: Regelkreis aus Screenshot → DOM/A11y-Tree → Aktion → erneut lesen" />
+  <a href="http://127.0.0.1:7788/?__theme=dark" target="_blank" rel="noopener noreferrer">
+    <img
+      src="./images/browser-use-webui.png"
+      alt="Browser Use Web UI"
+      class="w-full h-80 object-contain object-top"
+    />
+  </a>
 </div>
 
 <div v-click class="mt-6 text-lg opacity-75">
@@ -196,9 +206,6 @@ transition: fade
 
 </div>
 
-<div v-click="2" class="absolute bottom-8 left-0 right-0 text-center opacity-70">
-Gutes semantisches HTML und Accessibility bleiben wichtig – für Menschen und für diese Agents.
-</div>
 
 <!--
 UI-Automation bricht nicht einfach. Sie ist ein Umweg: ineffizient und ungenau.
@@ -232,124 +239,90 @@ class: text-left
 transition: slide-left
 ---
 
-
 # Web Model Context Protocol (WebMCP)
 
-<div class="mt-6 text-2xl leading-relaxed">
-Ein Vorschlag für eine neue <span class="text-primary font-bold">Web-Plattform-API</span>.
-Die aktive Webseite nutzt <code>document.modelContext</code>, um ihre Daten und erlaubten Funktionen als <span class="text-primary font-bold">Tools</span> für den Agenten zu registrieren.
-
+<div class="mt-12 text-3xl leading-relaxed">
+Ein Vorschlag für einen Webstandard, mit dem Websites
+<span class="text-primary font-bold">ihre Aktionen für KI-Agenten beschreiben</span>.
 </div>
 
-<div class="grid grid-cols-3 gap-5 mt-10 text-left">
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">Discovery</div>
-    <div class="mt-2 opacity-80">Die Seite registriert Tools wie <code>filter_hikes</code>.</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">JSON Schema</div>
-    <div class="mt-2 opacity-80">Explizite Ein- und Ausgaben statt geratener Felder.</div>
-  </div>
-  <div v-click class="rounded-xl border border-main/20 p-5">
-    <div class="font-bold text-primary">State</div>
-    <div class="mt-2 opacity-80">Agent und Seite teilen denselben sichtbaren Zustand.</div>
-  </div>
+<div v-click class="mt-12 text-2xl leading-relaxed">
+Jede Aktion ist ein <span class="font-bold text-primary">Tool</span> mit Name, Beschreibung und benötigten Eingaben.
+Der Agent nutzt diese Tools, statt Buttons und Felder auf der Seite zu erraten.
 </div>
 
-<div v-click class="absolute bottom-6 right-8 text-sm opacity-60">
-  WebMCP-Spezifikation: <a href="https://webmachinelearning.github.io/webmcp" target="_blank" rel="noopener noreferrer">
-https://webmachinelearning.github.io/webmcp
-  </a>
+<div class="absolute bottom-6 right-8 text-sm opacity-60">
+  <a href="https://webmachinelearning.github.io/webmcp/" target="_blank" rel="noopener noreferrer">Vorschlag der W3C Web Machine Learning Community Group (Google und Microsoft).</a>
 </div>
 
 <!--
-WebMCP = Web Model Context Protocol. Vorschlag aus der W3C Web Machine Learning
-Community Group. Kern: die Seite beschreibt Tools mit JSON-Schema; der Agent
-ruft sie auf, statt die UI zu rekonstruieren. Details zu Herkunft/Stand kommen
-gleich.
+WebMCP steht für Web Model Context Protocol. Der Vorschlag wird von Ingenieuren
+von Google und Microsoft in der W3C Web Machine Learning Community Group
+entwickelt; er ist noch kein verabschiedeter Standard. Kern: Die Website
+benennt die erlaubten Aktionen und ihre Eingaben. Dadurch muss der Agent
+nicht aus der Oberfläche rekonstruieren, welche Klicks nötig wären.
+Die technische Umsetzung mit Formularen und JavaScript kommt später.
 
 Timing: 7:00-8:00
 -->
 
 ---
-layout: two-cols
-layoutClass: gap-12
+layout: default
 transition: fade
 ---
 
-# Dieselbe Absicht, mit WebMCP
+# Dieselbe Absicht – live in Trailfolk
 
-<div class="mt-8 text-left">
-
-## Nutzerwunsch
-
-> Mittelschwere Wanderungen in der Zentralschweiz, 8–14 km, mindestens 500 Höhenmeter, höchstens vier Stunden.
-
+<div class="mt-16 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
+  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland – rund 15 km und mindestens 1000 Meter Aufstieg.“
 </div>
 
-::right::
-
-<div class="mt-8 text-left text-lg leading-relaxed">
-
-## Was passiert
-
-1. Agent ruft `filter_hikes` mit strukturierten Werten auf
-2. Filter-Chips ändern sich sichtbar
-3. Resultatzahl aktualisiert sich
-4. Karten bleiben die überprüfbare Arbeitsfläche
-
-</div>
-
-<div class="mt-6">
-  <Placeholder kind="image" h="9rem"
-    label="Screenshot: Trailfolk nach dem Tool-Aufruf – gesetzte Filter-Chips und Resultate" />
+<div class="mt-12 text-center">
+  <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer"
+    class="inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-3 text-xl font-bold text-[#061126] shadow-lg shadow-primary/20 transition hover:bg-[#8dd9f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+    Demo <span aria-hidden="true">↗</span>
+  </a>
 </div>
 
 <!--
-Live-Demo WebMCP. Ein Aufruf statt vieler Klicks. Der Vorher/Nachher-Effekt in
-der UI ist der Kern: der Zustand bleibt sichtbar und prüfbar.
+Jetzt direkt auf der Website zeigen, wie Trailfolk dem Agenten die passende
+Aktion anbietet und wie sich das Ergebnis in der Seite zeigt. Keine weiteren
+Schritte vorwegnehmen – die Demo spricht für sich.
 
 Timing: 8:00-10:30
 -->
 
 ---
-layout: two-cols
-layoutClass: gap-12
+layout: default
 transition: slide-up
 ---
 
-# Woher kommt es? Wo steht es?
+# Zwei Wege für den Agenten
 
-<div class="mt-8 text-left text-lg leading-relaxed">
-
-## Herkunft
-
-- W3C Web Machine Learning Community Group
-- Draft Community Group Report
-- Kein W3C Recommendation Standard
-
+<div class="grid grid-cols-2 gap-12 mt-8 text-left text-lg leading-relaxed">
+<div>
+<h2>Co-Browsing</h2>
+<p class="mt-4">Mensch und Assistent arbeiten <span class="font-bold text-primary">auf derselben Seite</span> im Browser. Der Mensch kann die Schritte verfolgen und eingreifen.</p>
+<div class="mt-6 rounded-xl border border-main/20 p-4">ChatGPT Desktop nutzt WebMCP-Tools bereits im integrierten Browser. Gemini in Chrome ist ebenfalls ein Browser-Assistent, nutzt WebMCP-Tools aber noch nicht.</div>
+</div>
+<div>
+<h2>Remote Browsing</h2>
+<p class="mt-4">Eine KI-Anwendung öffnet <span class="font-bold text-primary">ihren eigenen Browser</span> und erledigt die Aufgabe, mit oder ohne Live-Ansicht für den Menschen.</p>
+<div class="mt-6 rounded-xl border border-main/20 p-4">Die Website kann auch dort Tools bereitstellen – statt nur eine Oberfläche zum Klicken.</div>
+</div>
 </div>
 
-::right::
-
-<div class="mt-8 text-left text-lg leading-relaxed">
-
-## Implementierungen
-
-- Chrome 149+: Origin Trial + `chrome://flags`
-- Edge: Origin Trial
-- Erste Agent-Clients dokumentiert
-
-<div class="mt-6 opacity-75">
-Snapshot – vor dem Vortrag prüfen. Für Experimente ja, für breite Produktion noch vorsichtig.
-</div>
-
+<div class="absolute bottom-6 right-8 text-sm opacity-60">
+  Aktueller Stand: <a href="https://webmcp.com/ecosystem-tracker" target="_blank" rel="noopener noreferrer">webmcp.com/ecosystem-tracker</a>
 </div>
 
 <!--
-Ehrlich einordnen: experimentell, Community-Group-Draft, kein Standard. Chrome
-treibt es über Origin Trials. Angaben ändern sich schnell – Folie kurz vor der
-Konferenz aktualisieren.
+Zwei Einsatzweisen unterscheiden: Co-Browsing teilt den sichtbaren Seitenzustand,
+Remote Browsing nutzt einen separaten Browser der KI-Anwendung. ChatGPT Desktop
+unterstützt laut webmcp.com WebMCP-Site-Tools seit August 2026; Gemini in Chrome
+noch nicht. Die 2.982 verifizierten Seiten sind ein Verzeichnis-Snapshot und
+keine Aussage über Browser-Abdeckung oder erfolgreiche Agenten-Aufgaben.
+Unterstützung und Zahl vor dem Vortrag erneut prüfen.
 
 Timing: 10:30-11:30
 -->
@@ -412,10 +385,6 @@ transition: slide-up
   </div>
 </div>
 
-<div v-click class="mt-8 text-xl opacity-75">
-Trailfolk nutzt beides: imperativ für die Filter-Logik, deklarativ für ein einfaches Formular.
-</div>
-
 <!--
 Überblick vor dem konkreten Code. Imperativ für zustandsbehaftete Apps wie
 Trailfolk, deklarativ für vorhandene HTML-Formulare.
@@ -424,7 +393,7 @@ Timing: 12:30-13:30
 -->
 
 ---
-layout: default
+layout: default∆
 transition: fade
 ---
 
@@ -647,9 +616,10 @@ transition: fade
 
 <div class="absolute bottom-8 left-12 right-12 border-t border-main/20 pt-3 text-left text-xs leading-relaxed opacity-60">
   <div class="font-bold uppercase tracking-widest mb-2">Quellen</div>
-  <ul class="grid grid-cols-3 gap-x-6 gap-y-1 list-disc list-inside break-all">
+  <ul class="grid grid-cols-2 gap-x-6 gap-y-1 list-disc list-inside break-all">
     <li>webmachinelearning.github.io/webmcp</li>
     <li>developer.chrome.com/docs/ai/webmcp</li>
+    <li><a href="https://webmcp.com" target="_blank" rel="noopener noreferrer">webmcp.com</a></li>
     <li>github.com/browser-use/web-ui</li>
   </ul>
 </div>
