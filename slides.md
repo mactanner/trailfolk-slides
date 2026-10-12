@@ -450,7 +450,7 @@ Timing: 12:30-13:30
 -->
 
 ---
-layout: default∆
+layout: default
 transition: fade
 ---
 
@@ -458,7 +458,7 @@ transition: fade
 
 # <i>filter_hikes</i>&nbsp;&nbsp;&nbsp;als Tool
 
-```js {all|2-3|4-13|14|15-18}
+```js {all|1|2|3|4-13|14|15-18}
 await document.modelContext.registerTool({
   name: 'filter_hikes',
   description: 'Filtert Wanderungen nach Region, Schwierigkeit, Distanz, Dauer und Höhenmetern.',
@@ -473,9 +473,8 @@ await document.modelContext.registerTool({
     },
     required: ['region'],
   },
-  annotations: { readOnlyHint: true },
   execute: async (args) => {
-    const hikes = applyFilters(args)       // bestehende App-Logik
+    const hikes = applyFilters(args)
     return `${hikes.length} Wanderungen gefunden.`
   },
 })
@@ -498,23 +497,26 @@ transition: slide-left
 
 # Ein Formular wird zum Tool
 
-```html {all|2-3|5-9|10-11}
-<form
+```html {all|1|2-3|5-9|10-12|13}
+<form toolautosubmit
   toolname="subscribe_trail_updates"
   tooldescription="Meldet den Nutzer für Wander-Updates einer Region an."
 >
   <select name="region" toolparamdescription="Wanderregion">
     <option value="zentralschweiz">Zentralschweiz</option>
     <option value="tessin">Tessin</option>
+    ...
   </select>
-  <input name="email" type="email"
+  <input name="email" 
+         type="email"
          toolparamdescription="E-Mail-Adresse für Updates" />
   <button type="submit">Abonnieren</button>
 </form>
 ```
 
 <div class="mt-6 text-lg opacity-75">
-Kein JavaScript nötig: Der Browser baut das JSON-Schema aus den Feldern. <code>toolautosubmit</code> steuert, ob der Agent selbst absendet.
+Kein JavaScript nötig: Der Browser baut das JSON-Schema aus den Feldern.<br/>
+<code>toolautosubmit</code> steuert, ob der Agent selbst absendet.
 </div>
 
 <!--
@@ -526,45 +528,68 @@ Timing: 15:00-16:00
 -->
 
 ---
-layout: two-cols-header
-layoutClass: gap-10
+layout: default
 transition: fade
 ---
 
-# Schema, Annotations, Ownership
+<div class="text-sm tracking-widest uppercase opacity-55">Vertrag · Verhalten · Verantwortung</div>
 
-::left::
+# Schema, Annotations &amp; Ownership
 
-<div class="mt-6 text-left text-lg leading-relaxed">
+<div class="text-base opacity-70 -mt-1 mb-4">Drei Themen, die jedes WebMCP-Tool adressieren sollte</div>
 
-- Das **Schema** ist ein API-Vertrag – validieren, begrenzen, benennen
-- **Annotations** sind Hinweise für Agent und Browser:
-  - `readOnlyHint` – nur lesen
-  - `consequentialHint` – braucht Bestätigung
-  - `untrustedContentHint` – Ausgabe sanitizen
+<div class="grid grid-cols-3 gap-4 text-left text-sm leading-snug">
+
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col">
+    <div class="text-xs uppercase tracking-wider text-primary/70">1 · Vertrag</div>
+    <div class="font-bold text-primary text-lg mt-1">Schema</div>
+    <div class="opacity-80">Was darf das Tool?</div>
+    <div class="mt-2">Beschreibt Eingaben und Datentypen – welche Parameter zulässig sind, strukturiert validierbar.</div>
+    <div class="mt-auto pt-3 text-xs opacity-70"><code>orderId</code> als String · <code>limit</code> 1–20</div>
+  </div>
+
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col">
+    <div class="text-xs uppercase tracking-wider text-primary/70">2 · Verhalten</div>
+    <div class="font-bold text-primary text-lg mt-1">Annotations</div>
+    <div class="opacity-80">Wie ist das Tool einzuordnen?</div>
+    <div class="mt-3 flex flex-col gap-2">
+      <div>
+        <div><span class="font-semibold">Read-only</span> · <code>readOnlyHint</code></div>
+        <div class="opacity-70 text-xs">Verändert den Zustand nicht.</div>
+      </div>
+      <div>
+        <div><span class="font-semibold">Sensibel</span> · <code>consequentialHint</code></div>
+        <div class="opacity-70 text-xs">Kann erhebliche Folgen haben.</div>
+      </div>
+      <div>
+        <div><span class="font-semibold">Untrusted</span> · <code>untrustedContentHint</code></div>
+        <div class="opacity-70 text-xs">Ergebnis evtl. nicht vertrauenswürdig.</div>
+      </div>
+    </div>
+  </div>
+
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col">
+    <div class="text-xs uppercase tracking-wider text-primary/70">3 · Verantwortung</div>
+    <div class="font-bold text-primary text-lg mt-1">Ownership</div>
+    <div class="opacity-80">Wer kontrolliert die Ausführung?</div>
+    <div class="mt-2">Die Web-App stellt ihre Tools bereit und kontrolliert ihre Implementierung. Login, Berechtigungen und fachliche Regeln bleiben durchzusetzen.</div>
+    <div class="mt-auto pt-3 text-xs opacity-70">Prinzip: minimale Berechtigungen, klare Zuständigkeiten.</div>
+  </div>
 
 </div>
 
-::right::
 
-<div class="mt-6 text-left text-lg leading-relaxed">
-
-## Wer besitzt die Tools?
-
-- Die Seite registriert sie – und behält Login, Kontext und UI
-- Sensible Aktionen: Bestätigung erzwingen
-- So klein wie möglich schneiden
-
-<div class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-4">
-Frage: Würden wir dieses Tool auch einem fremden Entwickler geben?
-</div>
-
-</div>
 
 <!--
-Für dieses Publikum der Engineering-Kern: Tool-Schema ist ein API-Vertrag mit
-Produkt- und Security-Folgen. Annotations helfen dem Agent, sicher zu handeln,
-aber Seite und Client bleiben verantwortlich. Ownership bleibt bei der Seite.
+Mentales Modell in drei Schritten: Erst Vertrag (Schema – was akzeptiert das Tool),
+dann Verhalten (Annotations – wie ist es einzuordnen), dann Verantwortung (Ownership –
+wer prüft Berechtigungen und autorisiert Aktionen).
+
+Fachliche Präzisierung: consequentialHint ist ein Hinweis auf potenziell folgenreiche
+Aktionen – keine Garantie, dass der Browser eine Bestätigung erzwingt. Ebenso ersetzt
+untrustedContentHint keine tatsächliche Sanitization; solche Schutzmaßnahmen müssen
+explizit implementiert werden. Ownership heißt nicht nur: wem gehört der Code, sondern
+auch: wer prüft Login, Berechtigungen und fachliche Regeln.
 
 Timing: 16:00-17:30
 -->
@@ -590,7 +615,7 @@ transition: slide-up
 </div>
 
 <div class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-4 text-xl text-left">
-WebMCP ersetzt kein Backend-MCP. Es ergänzt es dort, wo der Browser-Kontext Teil der Aufgabe ist.
+WebMCP ersetzt kein Backend-MCP.<br/>Es ergänzt es dort, wo der Browser-Kontext Teil der Aufgabe ist.
 </div>
 
 <!--
@@ -632,22 +657,22 @@ class: text-left
 transition: slide-left
 ---
 
-# WebMCP: Drei Dinge zum Mitnehmen
+# WebMCP: 3 Dinge zum Mitnehmen
 
 <div class="mt-10 space-y-6 text-2xl leading-relaxed">
   <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
     <span class="text-primary font-bold">1.</span>
-    <span>WebMCP macht ausgewählte Web-Fähigkeiten explizit, statt sie aus der UI raten zu lassen.</span>
+    <span>WebMCP macht ausgewählte <span class="text-primary font-bold">Web-Fähigkeiten explizit</span>, statt sie aus der UI raten zu lassen.</span>
   </div>
 
   <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
     <span class="text-primary font-bold">2.</span>
-    <span>Es ergänzt Backend-MCP, APIs, Accessibility und menschliche Kontrolle – es ersetzt sie nicht.</span>
+    <span>Es <span class="text-primary font-bold">ergänzt Backend-MCP, APIs, Accessibility</span> und menschliche Kontrolle – es ersetzt sie nicht.</span>
   </div>
 
   <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
     <span class="text-primary font-bold">3.</span>
-    <span>Der Nutzen hängt an gutem Tool-Design, klaren Grenzen und sichtbarer UI.</span>
+    <span>Der Nutzen hängt an <span class="text-primary font-bold">gutem Tool-Design</span>, klaren Grenzen und sichtbarer UI.</span>
   </div>
 </div>
 

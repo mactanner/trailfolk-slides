@@ -51,7 +51,7 @@
   color: var(--css-blue);
 }
 
-.slidev-layout code {
+.slidev-layout :not(pre) > code {
   border-radius: 0.35rem;
   background: rgb(255 255 255 / 6%);
 }
