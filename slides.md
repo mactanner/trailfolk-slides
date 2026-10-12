@@ -361,28 +361,60 @@ transition: slide-left
 
 # Wie funktioniert WebMCP?
 
-```mermaid {scale: 0.62}
-sequenceDiagram
-    participant U as Nutzer
-    participant A as Browser-Agent
-    participant P as Web-App (Tools)
-    participant S as Backend
+<div class="flex items-start justify-center gap-2 mt-6 text-center text-sm">
+  <div class="flex-1 h-20 flex flex-col justify-center rounded-xl border border-main/25 p-3">
+    <div class="font-bold">🧑 Nutzer</div>
+    <div class="opacity-70 mt-1">Wunsch in natürlicher Sprache</div>
+  </div>
+  <div class="h-20 flex items-center text-primary text-2xl">→</div>
+  <div class="flex-1 flex flex-col items-center gap-1">
+    <div class="w-full h-20 flex flex-col justify-center rounded-xl border border-main/25 p-3">
+      <div class="font-bold">🤖 Browser-Agent</div>
+      <div class="opacity-70 mt-1">wählt passendes Tool</div>
+    </div>
+    <div class="text-amber-400 text-lg leading-none">↕</div>
+    <div class="w-full rounded-xl border-2 border-amber-400 bg-amber-400/10 p-2 text-xs">
+      <div class="font-bold text-amber-400">KI-Plattform · LLM</div>
+      <div class="opacity-80">meist remote · ggf. Token-Kosten</div>
+    </div>
+  </div>
+  <div class="h-20 flex items-center text-primary text-2xl">→</div>
+  <div class="flex-[1.3] h-20 flex flex-col justify-center rounded-xl border-2 border-primary bg-primary/10 p-3">
+    <div class="font-bold text-primary">Web-App · eigene Tools</div>
+    <div class="opacity-80 mt-1">Seiten-Code, kein zusätzliches Modell</div>
+  </div>
+  <div class="h-20 flex items-center text-primary text-2xl">→</div>
+  <div class="flex-1 h-20 flex flex-col justify-center rounded-xl border border-main/25 p-3">
+    <div class="font-bold">Backend</div>
+    <div class="opacity-70 mt-1">bestehende API (optional)</div>
+  </div>
+</div>
 
-    U->>A: Wunsch in Worten
-    A->>P: registriertes Tool aufrufen
-    P->>S: bestehende API/Logik
-    S-->>P: Daten
-    P-->>A: Tool-Ergebnis (strukturiert)
-    P-->>U: UI aktualisiert sich sichtbar
-```
+<div class="text-center mt-4 text-sm leading-relaxed">
+  Das <span class="text-amber-400 font-bold">Modell interpretiert den Wunsch</span> - die
+  <span class="text-primary font-bold">Tools führen den Code aus</span>.
+</div>
 
-<div class="mt-6 text-lg opacity-75">
-Das Tool läuft <span class="text-primary font-bold">in der Seite</span> – mit deren Session, Zustand und UI.
+<div class="grid grid-cols-3 gap-4 mt-4 text-left text-sm leading-snug">
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4">
+    <div class="font-bold text-primary text-base">Kein zusätzlicher Tool-Server</div>
+    <div class="mt-1">Tools werden in der Web-App bereitgestellt und können bestehende Backend-APIs nutzen.</div>
+  </div>
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4">
+    <div class="font-bold text-primary text-base">Session &amp; Kontext nutzen</div>
+    <div class="mt-1">Die laufende Seite kann ihren Login-, UI- und Anwendungszustand verwenden.</div>
+  </div>
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4">
+    <div class="font-bold text-primary text-base">Definierte Aktionen</div>
+    <div class="mt-1">Der Agent verwendet Tools mit strukturierten Eingaben statt Buttons und Formulare zu erraten.</div>
+  </div>
 </div>
 
 <!--
-Der wichtigste Punkt: das Tool wird in der laufenden Seite ausgeführt, nicht in
-einem separaten Backend-Connector. Login, Kontext und UI bleiben bei der Seite.
+Wichtig: als typische Architektur präsentieren, nicht als zwingenden Ablauf jeder
+WebMCP-Implementierung. WebMCP ist derzeit noch ein vorgeschlagener Webstandard.
+Das Modell interpretiert den Wunsch (meist remote, ggf. Kosten); die Tools führen
+Seiten-Code im Kontext der Webseite aus.
 
 Timing: 11:30-12:30
 -->
