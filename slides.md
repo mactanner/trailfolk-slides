@@ -456,7 +456,7 @@ transition: fade
 
 <div class="text-sm tracking-widest uppercase opacity-55">Imperativ · JavaScript</div>
 
-# <code>filter_hikes</code> als Tool
+# <i>filter_hikes</i>&nbsp;&nbsp;&nbsp;als Tool
 
 ```js {all|2-3|4-13|14|15-18}
 await document.modelContext.registerTool({
@@ -665,7 +665,7 @@ transition: fade
 
 <div class="text-2xl text-center opacity-70">
   Der DOM ist keine API<br/>
-  <span class="text-primary font-bold">Jetzt beschreibt die Web-App ihre Fähigkeiten selbst.</span>
+  <span class="text-primary font-bold">Jetzt beschreibt die Web-App ihre Fähigkeiten selbst!</span>
 </div>
 
 <div class="mt-10 text-5xl font-bold text-center">
