@@ -56,6 +56,11 @@
   background: rgb(255 255 255 / 6%);
 }
 
+.slidev-layout a,
+.slidev-layout a:hover {
+  border-bottom: none;
+}
+
 .dark .slidev-layout {
   background:
     radial-gradient(circle at 92% 8%, rgb(0 164 224 / 15%), transparent 23rem),

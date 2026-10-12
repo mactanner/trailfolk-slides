@@ -54,12 +54,14 @@ Timing: 0:20-1:00
 -->
 
 ---
-layout: two-cols
+layout: two-cols-header
 layoutClass: gap-10
 transition: slide-left
 ---
 
 # Trailfolk
+
+::left::
 
 <div class="mt-6 text-left text-xl leading-relaxed">
 
@@ -100,7 +102,7 @@ transition: fade
 
 
 <div class="text-5xl leading-relaxed mt-6">
-Und wie gehen hier <span class="text-primary font-bold">Web Agents</span> vor?
+Wie gehen <span class="text-primary font-bold">Web Agents</span> hier vor?
 </div>
 
 <div class="mt-6 text-lg opacity-70">
@@ -131,12 +133,14 @@ Timing: 3:00-4:30
 -->
 
 ---
-layout: two-cols
+layout: two-cols-header
 layoutClass: gap-10
 transition: slide-left
 ---
 
 # Wie ein Agent das heute macht
+
+::left::
 
 <div class="mt-6 text-left text-lg leading-loose">
 
@@ -161,9 +165,6 @@ transition: slide-left
   </a>
 </div>
 
-<div v-click class="mt-6 text-lg opacity-75">
-Eine einfache Absicht wird zu vielen unsicheren Zwischenschritten.
-</div>
 
 <!--
 Nicht "Agents scrapen nur". Moderne Agents nutzen mehrere Signale. Der Punkt:
@@ -206,6 +207,30 @@ transition: fade
 
 </div>
 
+<div v-click="2" class="absolute inset-0 z-10 flex items-center justify-center bg-slate-900/20 px-12 backdrop-blur-sm">
+  <div class="flex flex-col items-center">
+    <a
+      href="https://makeameme.org/meme/inefficiency-inefficiency"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="./images/inefficiency.png"
+        alt="Inefficiency Meme"
+        class="max-h-[58vh] max-w-3xl object-contain"
+      />
+    </a>
+    <a
+      href="https://makeameme.org/meme/inefficiency-inefficiency"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-3 text-xs opacity-40 hover:opacity-70"
+    >
+      makeameme.org/meme/inefficiency-inefficiency
+    </a>
+  </div>
+</div>
+
 
 <!--
 UI-Automation bricht nicht einfach. Sie ist ein Umweg: ineffizient und ungenau.
@@ -223,7 +248,7 @@ transition: slide-up
 
 <div class="text-5xl leading-relaxed">
 Was, wenn die Webseite ihre Fähigkeiten
-<span class="text-primary font-bold">selbst beschreibt</span> –
+<span class="text-primary font-bold">selbst beschreibt</span> -
 statt sie erraten zu lassen?
 </div>
 
@@ -239,11 +264,11 @@ class: text-left
 transition: slide-left
 ---
 
-# Web Model Context Protocol (WebMCP)
+# Web Model Context Protocol WebMCP
 
 <div class="mt-12 text-3xl leading-relaxed">
 Ein Vorschlag für einen Webstandard, mit dem Websites
-<span class="text-primary font-bold">ihre Aktionen für KI-Agenten beschreiben</span>.
+<span class="text-primary font-bold">Aktionen für KI-Agenten beschreiben</span>.
 </div>
 
 <div v-click class="mt-12 text-2xl leading-relaxed">
@@ -271,7 +296,7 @@ layout: default
 transition: fade
 ---
 
-# Dieselbe Absicht – live in Trailfolk
+# WebMCP in Trailfolk
 
 <div class="mt-16 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
   „Ich suche eine anspruchsvolle Wanderung im Berner Oberland – rund 15 km und mindestens 1000 Meter Aufstieg.“
@@ -469,12 +494,14 @@ Timing: 15:00-16:00
 -->
 
 ---
-layout: two-cols
+layout: two-cols-header
 layoutClass: gap-10
 transition: fade
 ---
 
 # Schema, Annotations, Ownership
+
+::left::
 
 <div class="mt-6 text-left text-lg leading-relaxed">
 
@@ -604,7 +631,12 @@ class: text-center
 transition: fade
 ---
 
-<div class="text-5xl font-bold text-center">
+<div class="text-2xl text-center opacity-70">
+  Der DOM ist keine API<br/>
+  <span class="text-primary font-bold">Jetzt beschreibt die Web-App ihre Fähigkeiten selbst.</span>
+</div>
+
+<div class="mt-10 text-5xl font-bold text-center">
   Danke - Fragen?
 </div>
 
