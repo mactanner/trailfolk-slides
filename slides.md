@@ -4,7 +4,7 @@ css: unocss
 title: Der DOM ist keine API
 info: |
   ## Der DOM ist keine API: WebMCP für KI-Agenten
-  DevCon Lozärn, Oktober 2026
+  DevCon Lozärn, 23. Oktober 2026
 class: text-center
 drawings:
   persist: false
@@ -25,7 +25,7 @@ fonts:
   </h1>
 
   <div class="mt-12 text-xl opacity-70">
-    DevCon Lozärn · Oktober 2026
+    DevCon Lozärn · 23. Oktober 2026
   </div>
 </div>
 
@@ -42,7 +42,7 @@ transition: slide-up
 ---
 
 <div class="mt-12 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
-  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland – rund 15 km und mindestens 1000 Meter Aufstieg.“
+  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland - rund 15 km und mindestens 1000 Meter Aufstieg.“
 </div>
 
 
@@ -69,7 +69,6 @@ Eine kleine Schweizer Wander-App.
 
 - Filter: Region, Schwierigkeit, Distanz, Dauer, Höhenmeter
 - Resultatliste mit Wanderkarten
-- Tab **Entdecken** und Tab **Inspiration**
 
 </div>
 
@@ -106,7 +105,7 @@ Wie gehen <span class="text-primary font-bold">Web Agents</span> hier vor?
 </div>
 
 <div class="mt-6 text-lg opacity-70">
-Web Agents lesen und bedienen Websites im Browser – im Auftrag eines Nutzers.
+Web Agents lesen und bedienen Websites im Browser - im Auftrag eines Nutzers.
 </div>
 
 <div v-click class="mt-30">
@@ -168,7 +167,7 @@ transition: slide-left
 
 <!--
 Nicht "Agents scrapen nur". Moderne Agents nutzen mehrere Signale. Der Punkt:
-Bedeutung wird aus einer für Menschen gebauten Oberfläche rekonstruiert – Schritt
+Bedeutung wird aus einer für Menschen gebauten Oberfläche rekonstruiert - Schritt
 für Schritt, jedes Mal neu.
 
 Timing: 4:30-5:30
@@ -264,7 +263,7 @@ class: text-left
 transition: slide-left
 ---
 
-# Web Model Context Protocol WebMCP
+# WebMCP - Web Model Context Protocol
 
 <div class="mt-12 text-3xl leading-relaxed">
 Ein Vorschlag für einen Webstandard, mit dem Websites
@@ -272,8 +271,7 @@ Ein Vorschlag für einen Webstandard, mit dem Websites
 </div>
 
 <div v-click class="mt-12 text-2xl leading-relaxed">
-Jede Aktion ist ein <span class="font-bold text-primary">Tool</span> mit Name, Beschreibung und benötigten Eingaben.
-Der Agent nutzt diese Tools, statt Buttons und Felder auf der Seite zu erraten.
+Jede Aktion ist ein <span class="font-bold text-primary">Tool</span>: Name, Beschreibung, Eingaben.
 </div>
 
 <div class="absolute bottom-6 right-8 text-sm opacity-60">
@@ -299,7 +297,7 @@ transition: fade
 # WebMCP in Trailfolk
 
 <div class="mt-16 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
-  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland – rund 15 km und mindestens 1000 Meter Aufstieg.“
+  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland - rund 15 km und mindestens 1000 Meter Aufstieg.“
 </div>
 
 <div class="mt-12 text-center">
@@ -312,7 +310,7 @@ transition: fade
 <!--
 Jetzt direkt auf der Website zeigen, wie Trailfolk dem Agenten die passende
 Aktion anbietet und wie sich das Ergebnis in der Seite zeigt. Keine weiteren
-Schritte vorwegnehmen – die Demo spricht für sich.
+Schritte vorwegnehmen - die Demo spricht für sich.
 
 Timing: 8:00-10:30
 -->
@@ -328,12 +326,12 @@ transition: slide-up
 <div>
 <h2>Co-Browsing</h2>
 <p class="mt-4">Mensch und Assistent arbeiten <span class="font-bold text-primary">auf derselben Seite</span> im Browser. Der Mensch kann die Schritte verfolgen und eingreifen.</p>
-<div class="mt-6 rounded-xl border border-main/20 p-4">ChatGPT Desktop nutzt WebMCP-Tools bereits im integrierten Browser. Gemini in Chrome ist ebenfalls ein Browser-Assistent, nutzt WebMCP-Tools aber noch nicht.</div>
+<div class="mt-6 rounded-xl border border-main/20 p-4">Beispiel: ChatGPT Desktop nutzt WebMCP-Tools im integrierten Browser.</div>
 </div>
 <div>
 <h2>Remote Browsing</h2>
 <p class="mt-4">Eine KI-Anwendung öffnet <span class="font-bold text-primary">ihren eigenen Browser</span> und erledigt die Aufgabe, mit oder ohne Live-Ansicht für den Menschen.</p>
-<div class="mt-6 rounded-xl border border-main/20 p-4">Die Website kann auch dort Tools bereitstellen – statt nur eine Oberfläche zum Klicken.</div>
+<div class="mt-6 rounded-xl border border-main/20 p-4">Die Website kann auch dort Tools bereitstellen - statt nur eine Oberfläche zum Klicken.</div>
 </div>
 </div>
 
@@ -345,7 +343,8 @@ transition: slide-up
 Zwei Einsatzweisen unterscheiden: Co-Browsing teilt den sichtbaren Seitenzustand,
 Remote Browsing nutzt einen separaten Browser der KI-Anwendung. ChatGPT Desktop
 unterstützt laut webmcp.com WebMCP-Site-Tools seit August 2026; Gemini in Chrome
-noch nicht. Die 2.982 verifizierten Seiten sind ein Verzeichnis-Snapshot und
+ist ebenfalls ein Browser-Assistent, nutzt WebMCP-Tools aber noch nicht.
+Die 2.982 verifizierten Seiten sind ein Verzeichnis-Snapshot und
 keine Aussage über Browser-Abdeckung oder erfolgreiche Agenten-Aufgaben.
 Unterstützung und Zahl vor dem Vortrag erneut prüfen.
 
@@ -395,18 +394,14 @@ transition: slide-left
   <span class="text-primary font-bold">Tools führen den Code aus</span>.
 </div>
 
-<div class="grid grid-cols-3 gap-4 mt-4 text-left text-sm leading-snug">
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4">
-    <div class="font-bold text-primary text-base">Kein zusätzlicher Tool-Server</div>
-    <div class="mt-1">Tools werden in der Web-App bereitgestellt und können bestehende Backend-APIs nutzen.</div>
+<div class="grid grid-cols-2 gap-6 mt-8 text-left text-lg leading-snug">
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-5">
+    <div class="font-bold text-primary text-xl">Kein zusätzlicher Tool-Server</div>
+    <div class="mt-2">Tools laufen in der Web-App und können bestehende Backend-APIs nutzen.</div>
   </div>
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4">
-    <div class="font-bold text-primary text-base">Session &amp; Kontext nutzen</div>
-    <div class="mt-1">Die laufende Seite kann ihren Login-, UI- und Anwendungszustand verwenden.</div>
-  </div>
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4">
-    <div class="font-bold text-primary text-base">Definierte Aktionen</div>
-    <div class="mt-1">Der Agent verwendet Tools mit strukturierten Eingaben statt Buttons und Formulare zu erraten.</div>
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-5">
+    <div class="font-bold text-primary text-xl">Session &amp; Kontext nutzen</div>
+    <div class="mt-2">Login-, UI- und Anwendungszustand der laufenden Seite stehen zur Verfügung.</div>
   </div>
 </div>
 
@@ -425,7 +420,7 @@ class: tools-api-slide
 transition: slide-up
 ---
 
-<div class="text-sm tracking-widest uppercase opacity-55">Der Code – zwei Wege</div>
+<div class="text-sm tracking-widest uppercase opacity-55">Der Code</div>
 
 # Imperativ oder deklarativ
 
@@ -438,7 +433,7 @@ transition: slide-up
   <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-6">
     <div class="text-primary font-bold text-xl">Deklarativ (HTML)</div>
     <code class="block mt-4 text-sm">&lt;form toolname="…"<br>tooldescription="…"&gt;</code>
-    <div class="mt-5 text-lg">Für bestehende Formulare – der Browser leitet Tool und Schema ab.</div>
+    <div class="mt-5 text-lg">Für bestehende Formulare - der Browser leitet Tool und Schema ab.</div>
   </div>
 </div>
 
@@ -458,7 +453,7 @@ transition: fade
 
 # <i>filter_hikes</i>&nbsp;&nbsp;&nbsp;als Tool
 
-```js {all|1|2|3|4-13|14|15-18}
+```js {all|1|2|3|4-14|15-18}
 await document.modelContext.registerTool({
   name: 'filter_hikes',
   description: 'Filtert Wanderungen nach Region, Schwierigkeit, Distanz, Dauer und Höhenmetern.',
@@ -481,9 +476,10 @@ await document.modelContext.registerTool({
 ```
 
 <!--
-Der Kern für Entwickler: Name, Description, inputSchema (Vertrag), annotations,
-execute. execute ruft dieselbe Logik wie die UI auf. readOnlyHint sagt: dieses
-Tool ändert keinen Zustand.
+Der Kern für Entwickler: Name, Description, inputSchema (Vertrag), execute.
+execute ruft dieselbe Logik wie die UI auf. Das Tool ändert den UI-Zustand und
+ist deshalb nicht read-only; Annotations kommen auf der Folie «Schema,
+Annotations & Ownership».
 
 Timing: 13:30-15:00
 -->
@@ -538,42 +534,31 @@ transition: fade
 
 <div class="text-base opacity-70 -mt-1 mb-4">Drei Themen, die jedes WebMCP-Tool adressieren sollte</div>
 
-<div class="grid grid-cols-3 gap-4 text-left text-sm leading-snug">
+<div class="grid grid-cols-3 gap-5 text-left text-base leading-snug">
 
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col">
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-5 flex flex-col">
     <div class="text-xs uppercase tracking-wider text-primary/70">1 · Vertrag</div>
-    <div class="font-bold text-primary text-lg mt-1">Schema</div>
-    <div class="opacity-80">Was darf das Tool?</div>
-    <div class="mt-2">Beschreibt Eingaben und Datentypen – welche Parameter zulässig sind, strukturiert validierbar.</div>
-    <div class="mt-auto pt-3 text-xs opacity-70"><code>orderId</code> als String · <code>limit</code> 1–20</div>
+    <div class="font-bold text-primary text-2xl mt-1">Schema</div>
+    <div class="mt-2 opacity-80">Was darf das Tool?</div>
+    <div class="mt-auto pt-6 text-sm opacity-70"><code>region</code> nur aus Liste<br><code>maxDistanceKm</code> als Zahl</div>
   </div>
 
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col">
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-5 flex flex-col">
     <div class="text-xs uppercase tracking-wider text-primary/70">2 · Verhalten</div>
-    <div class="font-bold text-primary text-lg mt-1">Annotations</div>
-    <div class="opacity-80">Wie ist das Tool einzuordnen?</div>
-    <div class="mt-3 flex flex-col gap-2">
-      <div>
-        <div><span class="font-semibold">Read-only</span> · <code>readOnlyHint</code></div>
-        <div class="opacity-70 text-xs">Verändert den Zustand nicht.</div>
-      </div>
-      <div>
-        <div><span class="font-semibold">Sensibel</span> · <code>consequentialHint</code></div>
-        <div class="opacity-70 text-xs">Kann erhebliche Folgen haben.</div>
-      </div>
-      <div>
-        <div><span class="font-semibold">Untrusted</span> · <code>untrustedContentHint</code></div>
-        <div class="opacity-70 text-xs">Ergebnis evtl. nicht vertrauenswürdig.</div>
-      </div>
+    <div class="font-bold text-primary text-2xl mt-1">Annotations</div>
+    <div class="mt-2 opacity-80">Wie ist das Tool einzuordnen?</div>
+    <div class="mt-auto pt-6 text-sm opacity-70">
+      <code>readOnlyHint</code> · ändert nichts<br>
+      <code>consequentialHint</code> · folgenreich<br>
+      <code>untrustedContentHint</code> · Ergebnis unsicher
     </div>
   </div>
 
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col">
+  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-5 flex flex-col">
     <div class="text-xs uppercase tracking-wider text-primary/70">3 · Verantwortung</div>
-    <div class="font-bold text-primary text-lg mt-1">Ownership</div>
-    <div class="opacity-80">Wer kontrolliert die Ausführung?</div>
-    <div class="mt-2">Die Web-App stellt ihre Tools bereit und kontrolliert ihre Implementierung. Login, Berechtigungen und fachliche Regeln bleiben durchzusetzen.</div>
-    <div class="mt-auto pt-3 text-xs opacity-70">Prinzip: minimale Berechtigungen, klare Zuständigkeiten.</div>
+    <div class="font-bold text-primary text-2xl mt-1">Ownership</div>
+    <div class="mt-2 opacity-80">Wer kontrolliert die Ausführung?</div>
+    <div class="mt-auto pt-6 text-sm opacity-70">Die Web-App: Login, Berechtigungen, Fachregeln</div>
   </div>
 
 </div>
@@ -581,12 +566,12 @@ transition: fade
 
 
 <!--
-Mentales Modell in drei Schritten: Erst Vertrag (Schema – was akzeptiert das Tool),
-dann Verhalten (Annotations – wie ist es einzuordnen), dann Verantwortung (Ownership –
+Mentales Modell in drei Schritten: Erst Vertrag (Schema - was akzeptiert das Tool),
+dann Verhalten (Annotations - wie ist es einzuordnen), dann Verantwortung (Ownership -
 wer prüft Berechtigungen und autorisiert Aktionen).
 
 Fachliche Präzisierung: consequentialHint ist ein Hinweis auf potenziell folgenreiche
-Aktionen – keine Garantie, dass der Browser eine Bestätigung erzwingt. Ebenso ersetzt
+Aktionen - keine Garantie, dass der Browser eine Bestätigung erzwingt. Ebenso ersetzt
 untrustedContentHint keine tatsächliche Sanitization; solche Schutzmaßnahmen müssen
 explizit implementiert werden. Ownership heißt nicht nur: wem gehört der Code, sondern
 auch: wer prüft Login, Berechtigungen und fachliche Regeln.
@@ -609,12 +594,11 @@ transition: slide-up
 |---|---|---|
 | Tool läuft bei | Service oder API | laufender Web-App |
 | Gut für | Server- und System-Workflows | UI-, Session- und Kontext-Workflows |
-| UI | kann umgangen werden | bleibt sichtbar und synchron |
 | Beispiel | Zahlung auslösen, Daten abfragen | Filter setzen, Formular ausfüllen |
 
 </div>
 
-<div class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-4 text-xl text-left">
+<div v-click class="mt-6 rounded-xl border border-primary/30 bg-primary/10 p-4 text-xl text-left">
 WebMCP ersetzt kein Backend-MCP.<br/>Es ergänzt es dort, wo der Browser-Kontext Teil der Aufgabe ist.
 </div>
 
@@ -629,31 +613,6 @@ Timing: 17:30-18:30
 ---
 layout: center
 class: text-left
-transition: fade
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Wie geht es weiter?</div>
-
-<div class="text-4xl leading-relaxed mt-6">
-Experimentell heute – aber die
-<span class="text-primary font-bold">Design-Frage</span> ist schon jetzt nützlich:
-</div>
-
-<div v-click class="text-3xl leading-relaxed mt-10 text-primary font-bold">
-Welche Fähigkeiten eurer Web-App sind klar abgegrenzt, zustandsbehaftet und
-wertvoll genug, um sie einem Agenten kontrolliert anzubieten?
-</div>
-
-<!--
-Nicht auf eine Prognose einlassen. Der Mehrwert für das Publikum ist die
-Design-Frage, die sie heute auf ihre eigenen Apps anwenden können.
-
-Timing: 18:30-19:15
--->
-
----
-layout: center
-class: text-left
 transition: slide-left
 ---
 
@@ -662,24 +621,79 @@ transition: slide-left
 <div class="mt-10 space-y-6 text-2xl leading-relaxed">
   <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
     <span class="text-primary font-bold">1.</span>
-    <span>WebMCP macht ausgewählte <span class="text-primary font-bold">Web-Fähigkeiten explizit</span>, statt sie aus der UI raten zu lassen.</span>
+    <span>WebMCP macht <span class="text-primary font-bold">Web-Fähigkeiten explizit</span>, statt sie zu erraten.</span>
   </div>
 
   <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
     <span class="text-primary font-bold">2.</span>
-    <span>Es <span class="text-primary font-bold">ergänzt Backend-MCP, APIs, Accessibility</span> und menschliche Kontrolle – es ersetzt sie nicht.</span>
+    <span>Es <span class="text-primary font-bold">ergänzt</span> Backend-MCP, APIs und Accessibility - es ersetzt sie nicht.</span>
   </div>
 
   <div v-click class="grid grid-cols-[2rem_1fr] gap-x-3 items-start">
     <span class="text-primary font-bold">3.</span>
-    <span>Der Nutzen hängt an <span class="text-primary font-bold">gutem Tool-Design</span>, klaren Grenzen und sichtbarer UI.</span>
+    <span>Der Nutzen hängt am <span class="text-primary font-bold">Tool-Design</span>.</span>
   </div>
 </div>
 
 <!--
 Drei Kernaussagen zum Mitnehmen.
 
-Timing: 19:15-19:45
+Timing: 18:30-19:00
+-->
+
+---
+layout: center
+class: text-left
+transition: fade
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Wie geht es weiter?</div>
+
+<div class="text-4xl leading-relaxed mt-6">
+Experimentell heute - aber die
+<span class="text-primary font-bold">Design-Frage</span> ist schon jetzt nützlich:
+</div>
+
+<div v-click class="text-3xl leading-relaxed mt-10 text-primary font-bold">
+Welche Funktion eurer Web-App würdet ihr einem Agenten als Tool anbieten?
+</div>
+
+<div v-click class="text-xl mt-6 opacity-70">
+Klar abgegrenzt, mit Nutzen für den Anwender - und unter eurer Kontrolle.
+</div>
+
+<!--
+Nicht auf eine Prognose einlassen. Der Mehrwert für das Publikum ist die
+Design-Frage, die sie heute auf ihre eigenen Apps anwenden können.
+
+Timing: 19:00-19:30
+-->
+
+---
+layout: center
+class: text-left
+transition: slide-up
+---
+
+<div class="rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
+  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland - rund 15 km und mindestens 1000 Meter Aufstieg.“
+</div>
+
+<div v-click class="mt-10 text-xl leading-loose">
+  <div><span class="opacity-60">Vorher:</span> Screenshot, DOM, Controls raten, klicken, neu lesen …</div>
+  <div><span class="text-primary font-bold">Jetzt:</span> <code class="text-lg">filter_hikes({ region: 'berner-oberland', maxDistanceKm: 15, minElevation: 1000 })</code></div>
+</div>
+
+<div v-click class="mt-10 text-4xl font-bold text-primary">
+  Der DOM ist keine API - die Web-App kann eine anbieten.
+</div>
+
+<!--
+Bogen zurück zum Hook: derselbe Nutzerwunsch wie am Anfang. Vorher musste der
+Agent die Oberfläche in vielen Schritten erraten, jetzt genügt ein Tool-Aufruf
+mit klaren Eingaben. Schlusssatz greift den Titel auf.
+
+Timing: 19:30-19:50
 -->
 
 ---
@@ -688,12 +702,7 @@ class: text-center
 transition: fade
 ---
 
-<div class="text-2xl text-center opacity-70">
-  Der DOM ist keine API<br/>
-  <span class="text-primary font-bold">Jetzt beschreibt die Web-App ihre Fähigkeiten selbst!</span>
-</div>
-
-<div class="mt-10 text-5xl font-bold text-center">
+<div class="text-6xl font-bold text-center">
   Danke - Fragen?
 </div>
 
@@ -703,19 +712,27 @@ transition: fade
   <a href="mailto:markus.tanner@css.ch">markus.tanner@css.ch</a>
 </div>
 
-<div class="absolute bottom-8 left-12 right-12 border-t border-main/20 pt-3 text-left text-xs leading-relaxed opacity-60">
-  <div class="font-bold uppercase tracking-widest mb-2">Quellen</div>
-  <ul class="grid grid-cols-2 gap-x-6 gap-y-1 list-disc list-inside break-all">
-    <li>webmachinelearning.github.io/webmcp</li>
-    <li>developer.chrome.com/docs/ai/webmcp</li>
-    <li><a href="https://webmcp.com" target="_blank" rel="noopener noreferrer">webmcp.com</a></li>
-    <li>github.com/browser-use/web-ui</li>
-  </ul>
-</div>
-
 <!--
 Danke und Übergang zu den 5 Minuten Fragen. Bei Bedarf auf Demo, Tool-Design,
 Security oder Spezifikationsstand eingehen.
 
-Timing: 19:45-20:00 (+ 5 min Q&A)
+Timing: 19:50-20:00 (+ 5 min Q&A)
+-->
+
+---
+layout: default
+transition: fade
+---
+
+# Quellen
+
+<ul class="mt-8 text-xl leading-loose list-disc pl-6">
+  <li><a href="https://webmachinelearning.github.io/webmcp/" target="_blank" rel="noopener noreferrer">webmachinelearning.github.io/webmcp</a></li>
+  <li><a href="https://developer.chrome.com/docs/ai/webmcp" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/ai/webmcp</a></li>
+  <li><a href="https://webmcp.com" target="_blank" rel="noopener noreferrer">webmcp.com</a></li>
+  <li><a href="https://github.com/browser-use/web-ui" target="_blank" rel="noopener noreferrer">github.com/browser-use/web-ui</a></li>
+</ul>
+
+<!--
+Backup-Folie für die Fragerunde, nicht Teil der 20 Minuten.
 -->
