@@ -72,7 +72,7 @@ Eine kleine Schweizer Wander-App.
 ::right::
 
 <div class="mt-4">
-  <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">
+  <a href="http://localhost:4040" target="_blank" rel="noopener noreferrer">
     <img
       src="./images/trailfolk-filters.png"
       alt="Trailfolk-Startansicht mit Filtern und Resultatliste"
@@ -296,7 +296,7 @@ transition: fade
 <HikeRequest compact class="mt-10" />
 
 <div class="mt-10 text-center">
-  <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer"
+  <a href="http://localhost:4040" target="_blank" rel="noopener noreferrer"
     class="inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-3 text-xl font-bold text-[#061126] shadow-lg shadow-primary/20 transition hover:bg-[#8dd9f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
     Demo <span aria-hidden="true">↗</span>
   </a>
@@ -650,11 +650,7 @@ Experimentell heute - aber die
 </div>
 
 <div v-click class="text-3xl leading-relaxed mt-10 text-primary font-bold">
-Welche Funktion eurer Web-App würdet ihr einem Agenten als Tool anbieten?
-</div>
-
-<div v-click class="text-xl mt-6 opacity-70">
-Klar abgegrenzt, mit Nutzen für den Anwender - und unter eurer Kontrolle.
+Welche Funktion soll eine Web-App einem Agenten als Tool anbieten?
 </div>
 
 <!--
@@ -672,19 +668,24 @@ transition: slide-up
 
 <HikeRequest compact />
 
-<div v-click class="mt-8 text-xl leading-loose">
-  <div><span class="opacity-60">Vorher:</span> Screenshot, DOM, Controls raten, klicken, neu lesen …</div>
-  <div><span class="text-primary font-bold">Jetzt:</span> <code class="text-lg">filter_hikes({ region: 'berner-oberland', maxDistanceKm: 15, minElevation: 1000 })</code></div>
+<div v-click class="mt-6 grid grid-cols-[8rem_1fr] gap-x-5 gap-y-2 text-xl leading-snug">
+  <span class="opacity-60">Vorher</span>
+  <span class="opacity-80">UI lesen, Controls finden, klicken.</span>
+  <span class="font-bold text-[#8dd9f3]">Mit WebMCP</span>
+  <span>Passendes Tool direkt aufrufen.</span>
 </div>
 
-<div v-click class="mt-8 text-4xl font-bold text-primary">
-  Der DOM ist keine API - die Web-App kann eine anbieten.
+<div v-click class="mt-6 text-4xl font-bold leading-tight">
+  <div>Der DOM ist keine API.</div>
+  <div class="mt-3 text-[#8dd9f3]">Die Web-App kann eine anbieten.</div>
 </div>
 
 <!--
-Bogen zurück zum Hook: derselbe Nutzerwunsch wie am Anfang. Vorher musste der
-Agent die Oberfläche in vielen Schritten erraten, jetzt genügt ein Tool-Aufruf
-mit klaren Eingaben. Schlusssatz greift den Titel auf.
+Bogen zurück zum Hook: derselbe Nutzerwunsch wie am Anfang.
+Zuerst den kurzen Vergleich einblenden: UI bedienen versus Tool aufrufen.
+"Derselbe Wunsch wie am Anfang. Aber der Agent muss nicht mehr die Bedienung
+erraten - die Web-App bietet ihm das passende Tool an."
+Danach die beiden Schlussaussagen gemeinsam einblenden: Titel und Antwort.
 
 Timing: 19:30-19:50
 -->
