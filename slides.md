@@ -41,10 +41,7 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="mt-12 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
-  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland - rund 15 km und mindestens 1000 Meter Aufstieg.“
-</div>
-
+<HikeRequest />
 
 <!--
 Der Hook ist ein konkreter Nutzerwunsch. Für Menschen ist die Absicht klar;
@@ -296,11 +293,9 @@ transition: fade
 
 # WebMCP in Trailfolk
 
-<div class="mt-16 rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
-  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland - rund 15 km und mindestens 1000 Meter Aufstieg.“
-</div>
+<HikeRequest compact class="mt-10" />
 
-<div class="mt-12 text-center">
+<div class="mt-10 text-center">
   <a href="http://localhost:5173" target="_blank" rel="noopener noreferrer"
     class="inline-flex items-center gap-3 rounded-xl bg-primary px-8 py-3 text-xl font-bold text-[#061126] shadow-lg shadow-primary/20 transition hover:bg-[#8dd9f3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
     Demo <span aria-hidden="true">↗</span>
@@ -675,16 +670,14 @@ class: text-left
 transition: slide-up
 ---
 
-<div class="rounded-xl border border-primary/30 bg-primary/5 px-10 py-9 text-3xl leading-relaxed">
-  „Ich suche eine anspruchsvolle Wanderung im Berner Oberland - rund 15 km und mindestens 1000 Meter Aufstieg.“
-</div>
+<HikeRequest compact />
 
-<div v-click class="mt-10 text-xl leading-loose">
+<div v-click class="mt-8 text-xl leading-loose">
   <div><span class="opacity-60">Vorher:</span> Screenshot, DOM, Controls raten, klicken, neu lesen …</div>
   <div><span class="text-primary font-bold">Jetzt:</span> <code class="text-lg">filter_hikes({ region: 'berner-oberland', maxDistanceKm: 15, minElevation: 1000 })</code></div>
 </div>
 
-<div v-click class="mt-10 text-4xl font-bold text-primary">
+<div v-click class="mt-8 text-4xl font-bold text-primary">
   Der DOM ist keine API - die Web-App kann eine anbieten.
 </div>
 
