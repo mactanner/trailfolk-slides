@@ -9,7 +9,7 @@ defineProps<{
     <p class="hike-request__message">
       <span>Ich suche eine <strong>anspruchsvolle Wanderung</strong></span>
       <span>im <strong>Berner Oberland</strong> - rund <strong>15 km</strong></span>
-      <span>und mindestens <strong>1000 Meter Aufstieg</strong>.</span>
+      <span>und mindestens <strong>1200 Meter Aufstieg</strong>.</span>
     </p>
   </div>
 </template>
