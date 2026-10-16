@@ -263,8 +263,8 @@ transition: slide-left
 # WebMCP - Web Model Context Protocol
 
 <div class="mt-12 text-3xl leading-relaxed">
-Ein Vorschlag für einen Webstandard, mit dem Websites
-<span class="text-primary font-bold">Aktionen für KI-Agenten beschreiben</span>.
+Ein Vorschlag für einen Webstandard, mit dem
+<span class="text-primary font-bold">Websites strukturierte Tools für KI-Agenten</span> bereitstellen können.
 </div>
 
 <div v-click class="mt-12 text-2xl leading-relaxed">
