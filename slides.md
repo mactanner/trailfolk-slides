@@ -543,9 +543,9 @@ transition: fade
     <div class="font-bold text-primary text-2xl mt-1">Annotations</div>
     <div class="mt-2 opacity-80">Wie ist das Tool einzuordnen?</div>
     <div class="mt-auto pt-6 text-sm opacity-70">
-      <code>readOnlyHint</code> · ändert nichts<br>
-      <code>consequentialHint</code> · folgenreich<br>
-      <code>untrustedContentHint</code> · Ergebnis unsicher
+      <code>readOnlyHint</code><br>
+      <code>consequentialHint</code><br>
+      <code>untrustedContentHint</code>
     </div>
   </div>
 
