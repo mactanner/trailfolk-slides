@@ -85,6 +85,9 @@ Eine kleine Schweizer Wander-App.
 Trailfolk kurz aus Sicht eines Menschen vorstellen: Filter setzen, Resultate
 sehen, eine Wanderung öffnen. Nur so viel zeigen, dass die App verständlich ist.
 
+Demo 1: Den Wunsch aus der Sprechblase manuell umsetzen. Mit demselben
+Ausgangszustand und denselben Kriterien wie in den beiden Agenten-Demos starten.
+
 Der Screenshot öffnet auf Klick die lokale Trailfolk-App.
 
 Timing: 1:00-3:00
@@ -166,6 +169,10 @@ transition: slide-left
 Nicht "Agents scrapen nur". Moderne Agents nutzen mehrere Signale. Der Punkt:
 Bedeutung wird aus einer für Menschen gebauten Oberfläche rekonstruiert - Schritt
 für Schritt, jedes Mal neu.
+
+Demo 2: Denselben Wunsch ohne WebMCP ausführen lassen. Ein erfolgreicher
+Durchlauf ist erwünscht; der sichtbare Interaktionsaufwand ist der Vergleich,
+nicht ein provozierter Fehler.
 
 Timing: 4:30-5:30
 -->
@@ -281,7 +288,7 @@ von Google und Microsoft in der W3C Web Machine Learning Community Group
 entwickelt; er ist noch kein verabschiedeter Standard. Kern: Die Website
 benennt die erlaubten Aktionen und ihre Eingaben. Dadurch muss der Agent
 nicht aus der Oberfläche rekonstruieren, welche Klicks nötig wären.
-Die technische Umsetzung mit Formularen und JavaScript kommt später.
+Die konkrete Tool-Registrierung mit JavaScript kommt später.
 
 Timing: 7:00-8:00
 -->
@@ -304,8 +311,14 @@ transition: fade
 
 <!--
 Jetzt direkt auf der Website zeigen, wie Trailfolk dem Agenten die passende
-Aktion anbietet und wie sich das Ergebnis in der Seite zeigt. Keine weiteren
-Schritte vorwegnehmen - die Demo spricht für sich.
+Aktion anbietet und wie sich das Ergebnis in der Seite zeigt.
+
+Demo 3: Tool-Angebot, übergebene Parameter, Rückgabe und aktualisierte UI zeigen.
+In DevTools unter Application > WebMCP die verfügbaren Tools und den
+tatsächlichen Aufruf öffnen. Ein manuell gestarteter Aufruf testet die
+Tool-Ausführung, nicht die Auswahl durch das Modell; diesen Unterschied benennen.
+App, Agent und DevTools nacheinander gross zeigen, nicht alles klein nebeneinander.
+Eine vorbereitete Aufnahme als Backup bereithalten.
 
 Timing: 8:00-10:30
 -->
@@ -315,19 +328,25 @@ layout: default
 transition: slide-up
 ---
 
-# Zwei Wege für den Agenten
 
-<div class="grid grid-cols-2 gap-12 mt-8 text-left text-lg leading-relaxed">
-<div>
-<h2>Co-Browsing</h2>
-<p class="mt-4">Mensch und Assistent arbeiten <span class="font-bold text-primary">auf derselben Seite</span> im Browser. Der Mensch kann die Schritte verfolgen und eingreifen.</p>
-<div class="mt-6 rounded-xl border border-main/20 p-4">Beispiel: ChatGPT Desktop nutzt WebMCP-Tools im integrierten Browser.</div>
+# Was geht heute?
+
+<div class="grid grid-cols-2 gap-8 mt-6 text-left text-lg leading-relaxed">
+  <div class="rounded-xl border border-main/20 p-5">
+    <h2>Browser-API</h2>
+    <p class="mt-3">Chrome &amp; Edge: experimentell über <span class="whitespace-nowrap font-bold text-primary">Origin Trials</span>.</p>
+    <p class="mt-3 text-base opacity-75">Lokal testen: Flag<br><code>#enable-webmcp-testing</code></p>
+  </div>
+  <div class="rounded-xl border border-main/20 p-5">
+    <h2>Agent-Unterstützung</h2>
+    <p class="mt-3">ChatGPT Desktop: <span class="font-bold text-primary">Site Tools</span> im integrierten Browser.</p>
+    <p class="mt-3 text-base opacity-75">Bei anderen Agenten separat prüfen.</p>
+  </div>
 </div>
-<div>
-<h2>Remote Browsing</h2>
-<p class="mt-4">Eine KI-Anwendung öffnet <span class="font-bold text-primary">ihren eigenen Browser</span> und erledigt die Aufgabe, mit oder ohne Live-Ansicht für den Menschen.</p>
-<div class="mt-6 rounded-xl border border-main/20 p-4">Die Website kann auch dort Tools bereitstellen - statt nur eine Oberfläche zum Klicken.</div>
-</div>
+
+<div v-click class="mt-6">
+  <div class="text-2xl font-bold text-primary">Browser-API ≠ Agent-Unterstützung.</div>
+  <div class="mt-2 text-base opacity-75">Ein Flag aktiviert die API, nicht automatisch den Assistenten.</div>
 </div>
 
 <div class="absolute bottom-6 right-8 text-sm opacity-60">
@@ -335,13 +354,21 @@ transition: slide-up
 </div>
 
 <!--
-Zwei Einsatzweisen unterscheiden: Co-Browsing teilt den sichtbaren Seitenzustand,
-Remote Browsing nutzt einen separaten Browser der KI-Anwendung. ChatGPT Desktop
-unterstützt laut webmcp.com WebMCP-Site-Tools seit August 2026; Gemini in Chrome
-ist ebenfalls ein Browser-Assistent, nutzt WebMCP-Tools aber noch nicht.
-Die 2.982 verifizierten Seiten sind ein Verzeichnis-Snapshot und
-keine Aussage über Browser-Abdeckung oder erfolgreiche Agenten-Aufgaben.
-Unterstützung und Zahl vor dem Vortrag erneut prüfen.
+Praktischer Einstieg statt einer Übersicht der Browsing-Varianten:
+Chrome ab 149 und Edge ab 150 mit Origin Trials; lokal über
+chrome://flags/#enable-webmcp-testing bzw. edge://flags/#enable-webmcp-testing.
+Ein Origin Trial erfordert die Registrierung der Website; das lokale Flag
+ist für die Entwicklung gedacht. Beides ersetzt keinen passenden Agenten.
+
+ChatGPT Desktop unterstützt Site Tools laut OpenAI im integrierten Browser.
+Verfügbarkeit hängt von Konto und ausgewähltem Modell ab. Dieser Browser hat
+seinen eigenen Zustand; ein Chrome-Login wird nicht automatisch übernommen.
+
+Mozilla ist neutral, WebKit ablehnend: Es gibt noch keinen browserübergreifenden
+Konsens. Positionen und Verfügbarkeit vor dem Vortrag erneut prüfen.
+Primärquellen: Implementierungsstand im WebMCP-Repository, OpenAI Site Tools,
+https://github.com/mozilla/standards-positions/issues/1412 und
+https://github.com/WebKit/standards-positions/issues/670.
 
 Timing: 10:30-11:30
 -->
@@ -406,6 +433,10 @@ WebMCP-Implementierung. WebMCP ist derzeit noch ein vorgeschlagener Webstandard.
 Das Modell interpretiert den Wunsch (meist remote, ggf. Kosten); die Tools führen
 Seiten-Code im Kontext der Webseite aus.
 
+Auf der Tonspur einschränken: Der Agent muss weiterhin das passende Tool und
+die richtigen Parameter wählen. WebMCP beseitigt die UI-Übersetzung, nicht jede
+mögliche Fehlentscheidung.
+
 Timing: 11:30-12:30
 -->
 
@@ -420,21 +451,31 @@ transition: slide-up
 # Imperativ oder deklarativ
 
 <div class="grid grid-cols-2 gap-8 mt-8 text-left">
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-6">
+  <div v-click="1" class="rounded-xl border border-primary/30 bg-primary/5 p-6">
     <div class="text-primary font-bold text-xl">Imperativ (JS)</div>
     <code class="block mt-4 text-sm">document.modelContext<br>.registerTool({ … })</code>
     <div class="mt-5 text-lg">Für eigene Logik, Navigation, Zustand, komplexe Abläufe.</div>
   </div>
-  <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-6">
+  <div v-click="2" class="rounded-xl border border-primary/30 bg-primary/5 p-6 transition-opacity duration-300" :style="{ opacity: $clicks >= 3 ? 0.4 : undefined }">
     <div class="text-primary font-bold text-xl">Deklarativ (HTML)</div>
     <code class="block mt-4 text-sm">&lt;form toolname="…"<br>tooldescription="…"&gt;</code>
     <div class="mt-5 text-lg">Für bestehende Formulare - der Browser leitet Tool und Schema ab.</div>
+  </div>
+  <div v-click="3" class="col-start-2 text-base leading-relaxed">
+    <span class="font-bold text-primary">Aktuell weniger im Fokus:</span>
+    Die deklarative API wird <a href="https://github.com/webmachinelearning/webmcp#future-exploration-declarative-api" target="_blank" rel="noopener noreferrer">separat erforscht</a>
+    und ist derzeit nicht mehr Teil des Spezifikationsentwurfs.
   </div>
 </div>
 
 <!--
 Überblick vor dem konkreten Code. Imperativ für zustandsbehaftete Apps wie
 Trailfolk, deklarativ für vorhandene HTML-Formulare.
+
+Klick 1: JavaScript zeigen. Klick 2: HTML zeigen. Klick 3: HTML abblenden
+und den aktuellen Spezifikationsfokus einordnen. Die deklarative API wird
+separat erforscht; Chrome dokumentiert und erprobt sie weiterhin.
+Das ist keine Zusage, dass sie später Teil des Standards wird.
 
 Timing: 12:30-13:30
 -->
@@ -481,45 +522,6 @@ Timing: 13:30-15:00
 
 ---
 layout: default
-transition: slide-left
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Deklarativ · HTML</div>
-
-# Ein Formular wird zum Tool
-
-```html {all|1|2-3|5-9|10-12|13}
-<form toolautosubmit
-  toolname="subscribe_trail_updates"
-  tooldescription="Meldet den Nutzer für Wander-Updates einer Region an."
->
-  <select name="region" toolparamdescription="Wanderregion">
-    <option value="zentralschweiz">Zentralschweiz</option>
-    <option value="tessin">Tessin</option>
-    ...
-  </select>
-  <input name="email" 
-         type="email"
-         toolparamdescription="E-Mail-Adresse für Updates" />
-  <button type="submit">Abonnieren</button>
-</form>
-```
-
-<div class="mt-6 text-lg opacity-75">
-Kein JavaScript nötig: Der Browser baut das JSON-Schema aus den Feldern.<br/>
-<code>toolautosubmit</code> steuert, ob der Agent selbst absendet.
-</div>
-
-<!--
-Deklarativ: toolname/tooldescription am Formular, toolparamdescription pro Feld.
-Der Browser synthetisiert das Schema. Gut für bestehende Formulare als
-Progressive Enhancement.
-
-Timing: 15:00-16:00
--->
-
----
-layout: default
 transition: fade
 ---
 
@@ -534,7 +536,7 @@ transition: fade
   <div v-click class="rounded-xl border border-primary/30 bg-primary/5 p-5 flex flex-col">
     <div class="text-xs uppercase tracking-wider text-primary/70">1 · Vertrag</div>
     <div class="font-bold text-primary text-2xl mt-1">Schema</div>
-    <div class="mt-2 opacity-80">Was darf das Tool?</div>
+    <div class="mt-2 opacity-80">Welche Eingaben akzeptiert das Tool?</div>
     <div class="mt-auto pt-6 text-sm opacity-70"><code>region</code> nur aus Liste<br><code>maxDistanceKm</code> als Zahl</div>
   </div>
 
@@ -564,6 +566,7 @@ transition: fade
 Mentales Modell in drei Schritten: Erst Vertrag (Schema - was akzeptiert das Tool),
 dann Verhalten (Annotations - wie ist es einzuordnen), dann Verantwortung (Ownership -
 wer prüft Berechtigungen und autorisiert Aktionen).
+Die drei Perspektiven erklären, nicht jede Annotation einzeln vertiefen.
 
 Fachliche Präzisierung: consequentialHint ist ein Hinweis auf potenziell folgenreiche
 Aktionen - keine Garantie, dass der Browser eine Bestätigung erzwingt. Ebenso ersetzt
@@ -633,31 +636,12 @@ transition: slide-left
 <!--
 Drei Kernaussagen zum Mitnehmen.
 
-Timing: 18:30-19:00
--->
+Beim dritten Punkt die Design-Frage mündlich anschliessen:
+"Welche Funktion eurer Web-App würdet ihr einem Agenten als Tool anbieten?"
+Keine Prognose versprechen: Auch wenn WebMCP experimentell ist, hilft diese
+Frage schon heute beim Tool-Design. Danach direkt zum Rückgriff auf den Einstieg.
 
----
-layout: center
-class: text-left
-transition: fade
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Wie geht es weiter?</div>
-
-<div class="text-4xl leading-relaxed mt-6">
-Experimentell heute - aber die
-<span class="text-primary font-bold">Design-Frage</span> ist schon jetzt nützlich:
-</div>
-
-<div v-click class="text-3xl leading-relaxed mt-10 text-primary font-bold">
-Welche Funktion soll eine Web-App einem Agenten als Tool anbieten?
-</div>
-
-<!--
-Nicht auf eine Prognose einlassen. Der Mehrwert für das Publikum ist die
-Design-Frage, die sie heute auf ihre eigenen Apps anwenden können.
-
-Timing: 19:00-19:30
+Timing: 18:30-19:30
 -->
 
 ---
@@ -720,12 +704,27 @@ transition: fade
 
 # Quellen
 
-<ul class="mt-8 text-xl leading-loose list-disc pl-6">
-  <li><a href="https://webmachinelearning.github.io/webmcp/" target="_blank" rel="noopener noreferrer">webmachinelearning.github.io/webmcp</a></li>
-  <li><a href="https://developer.chrome.com/docs/ai/webmcp" target="_blank" rel="noopener noreferrer">developer.chrome.com/docs/ai/webmcp</a></li>
-  <li><a href="https://webmcp.com" target="_blank" rel="noopener noreferrer">webmcp.com</a></li>
-  <li><a href="https://github.com/browser-use/web-ui" target="_blank" rel="noopener noreferrer">github.com/browser-use/web-ui</a></li>
-</ul>
+<div class="grid grid-cols-2 gap-10 mt-8 text-lg leading-relaxed">
+  <div>
+    <h2>Spezifikation &amp; Praxis</h2>
+    <ul class="mt-4 space-y-3 list-disc pl-5">
+      <li><a href="https://webmachinelearning.github.io/webmcp/" target="_blank" rel="noopener noreferrer">WebMCP-Spezifikationsentwurf</a></li>
+      <li><a href="https://developer.chrome.com/docs/ai/webmcp" target="_blank" rel="noopener noreferrer">Chrome: Einstieg &amp; APIs</a></li>
+      <li><a href="https://developer.chrome.com/docs/devtools/application/webmcp" target="_blank" rel="noopener noreferrer">Chrome DevTools: WebMCP</a></li>
+      <li><a href="https://webmcp.com" target="_blank" rel="noopener noreferrer">webmcp.com: Überblick &amp; Ressourcen</a></li>
+      <li><a href="https://github.com/browser-use/web-ui" target="_blank" rel="noopener noreferrer">Browser Use Web UI</a></li>
+    </ul>
+  </div>
+  <div>
+    <h2>Unterstützung &amp; Positionen</h2>
+    <ul class="mt-4 space-y-3 list-disc pl-5">
+      <li><a href="https://github.com/webmachinelearning/webmcp/blob/main/implementation-status.md" target="_blank" rel="noopener noreferrer">WebMCP: Implementierungsstand</a></li>
+      <li><a href="https://help.openai.com/en/articles/20001423-using-site-tools-in-the-chatgpt-desktop-app" target="_blank" rel="noopener noreferrer">OpenAI: Site Tools</a></li>
+      <li><a href="https://github.com/mozilla/standards-positions/issues/1412" target="_blank" rel="noopener noreferrer">Mozilla: neutrale Position</a></li>
+      <li><a href="https://github.com/WebKit/standards-positions/issues/670" target="_blank" rel="noopener noreferrer">WebKit: ablehnende Position</a></li>
+    </ul>
+  </div>
+</div>
 
 <!--
 Backup-Folie für die Fragerunde, nicht Teil der 20 Minuten.
