@@ -325,56 +325,6 @@ Timing: 8:00-10:30
 
 ---
 layout: default
-transition: slide-up
----
-
-
-# Was geht heute?
-
-<div class="grid grid-cols-2 gap-8 mt-6 text-left text-lg leading-relaxed">
-  <div class="rounded-xl border border-main/20 p-5">
-    <h2>Browser-API</h2>
-    <p class="mt-3">Chrome &amp; Edge: experimentell über <span class="whitespace-nowrap font-bold text-primary">Origin Trials</span>.</p>
-    <p class="mt-3 text-base opacity-75">Lokal testen: Flag<br><code>#enable-webmcp-testing</code></p>
-  </div>
-  <div class="rounded-xl border border-main/20 p-5">
-    <h2>Agent-Unterstützung</h2>
-    <p class="mt-3">ChatGPT Desktop: <span class="font-bold text-primary">Site Tools</span> im integrierten Browser.</p>
-    <p class="mt-3 text-base opacity-75">Bei anderen Agenten separat prüfen.</p>
-  </div>
-</div>
-
-<div v-click class="mt-6">
-  <div class="text-2xl font-bold text-primary">Browser-API ≠ Agent-Unterstützung.</div>
-  <div class="mt-2 text-base opacity-75">Ein Flag aktiviert die API, nicht automatisch den Assistenten.</div>
-</div>
-
-<div class="absolute bottom-6 right-8 text-sm opacity-60">
-  Aktueller Stand: <a href="https://webmcp.com/ecosystem-tracker" target="_blank" rel="noopener noreferrer">webmcp.com/ecosystem-tracker</a>
-</div>
-
-<!--
-Praktischer Einstieg statt einer Übersicht der Browsing-Varianten:
-Chrome ab 149 und Edge ab 150 mit Origin Trials; lokal über
-chrome://flags/#enable-webmcp-testing bzw. edge://flags/#enable-webmcp-testing.
-Ein Origin Trial erfordert die Registrierung der Website; das lokale Flag
-ist für die Entwicklung gedacht. Beides ersetzt keinen passenden Agenten.
-
-ChatGPT Desktop unterstützt Site Tools laut OpenAI im integrierten Browser.
-Verfügbarkeit hängt von Konto und ausgewähltem Modell ab. Dieser Browser hat
-seinen eigenen Zustand; ein Chrome-Login wird nicht automatisch übernommen.
-
-Mozilla ist neutral, WebKit ablehnend: Es gibt noch keinen browserübergreifenden
-Konsens. Positionen und Verfügbarkeit vor dem Vortrag erneut prüfen.
-Primärquellen: Implementierungsstand im WebMCP-Repository, OpenAI Site Tools,
-https://github.com/mozilla/standards-positions/issues/1412 und
-https://github.com/WebKit/standards-positions/issues/670.
-
-Timing: 10:30-11:30
--->
-
----
-layout: default
 transition: slide-left
 ---
 
@@ -438,6 +388,57 @@ die richtigen Parameter wählen. WebMCP beseitigt die UI-Übersetzung, nicht jed
 mögliche Fehlentscheidung.
 
 Timing: 11:30-12:30
+-->
+
+
+---
+layout: default
+transition: slide-up
+---
+
+
+# Was geht heute?
+
+<div class="grid grid-cols-2 gap-8 mt-6 text-left text-lg leading-relaxed">
+  <div class="rounded-xl border border-main/20 p-5">
+    <h2>Browser-API</h2>
+    <p class="mt-3">Chrome &amp; Edge: experimentell über <span class="whitespace-nowrap font-bold text-primary">Origin Trials</span>.</p>
+    <p class="mt-3 text-base opacity-75">Lokal testen: Flag<br><code>#enable-webmcp-testing</code></p>
+  </div>
+  <div class="rounded-xl border border-main/20 p-5">
+    <h2>Agent-Unterstützung</h2>
+    <p class="mt-3">ChatGPT Desktop: <span class="font-bold text-primary">Site Tools</span> im integrierten Browser.</p>
+    <p class="mt-3 text-base opacity-75">Bei anderen Agenten separat prüfen.</p>
+  </div>
+</div>
+
+<div v-click class="mt-6">
+  <div class="text-2xl font-bold text-primary">Browser-API ≠ Agent-Unterstützung.</div>
+  <div class="mt-2 text-base opacity-75">Ein Flag aktiviert die API, nicht automatisch den Assistenten.</div>
+</div>
+
+<div class="absolute bottom-6 right-8 text-sm opacity-60">
+  Aktueller Stand: <a href="https://webmcp.com/ecosystem-tracker" target="_blank" rel="noopener noreferrer">webmcp.com/ecosystem-tracker</a>
+</div>
+
+<!--
+Praktischer Einstieg statt einer Übersicht der Browsing-Varianten:
+Chrome ab 149 und Edge ab 150 mit Origin Trials; lokal über
+chrome://flags/#enable-webmcp-testing bzw. edge://flags/#enable-webmcp-testing.
+Ein Origin Trial erfordert die Registrierung der Website; das lokale Flag
+ist für die Entwicklung gedacht. Beides ersetzt keinen passenden Agenten.
+
+ChatGPT Desktop unterstützt Site Tools laut OpenAI im integrierten Browser.
+Verfügbarkeit hängt von Konto und ausgewähltem Modell ab. Dieser Browser hat
+seinen eigenen Zustand; ein Chrome-Login wird nicht automatisch übernommen.
+
+Mozilla ist neutral, WebKit ablehnend: Es gibt noch keinen browserübergreifenden
+Konsens. Positionen und Verfügbarkeit vor dem Vortrag erneut prüfen.
+Primärquellen: Implementierungsstand im WebMCP-Repository, OpenAI Site Tools,
+https://github.com/mozilla/standards-positions/issues/1412 und
+https://github.com/WebKit/standards-positions/issues/670.
+
+Timing: 10:30-11:30
 -->
 
 ---
