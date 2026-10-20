@@ -660,7 +660,7 @@ transition: slide-up
   <span>Passendes Tool direkt aufrufen.</span>
 </div>
 
-<div v-click class="mt-6 text-4xl font-b
+<div v-click class="mt-6 text-4xl font-bold leading-tight">
   <div>Der DOM ist keine API.</div>
 </div>
 
