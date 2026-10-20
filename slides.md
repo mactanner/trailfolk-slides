@@ -694,9 +694,19 @@ transition: fade
   <a href="mailto:markus.tanner@css.ch">markus.tanner@css.ch</a>
 </div>
 
+<div class="absolute bottom-6 right-8 flex flex-col items-center gap-1">
+  <img
+    src="./images/feedback-code.png"
+    alt="QR-Code für Feedback"
+    class="h-32 w-32"
+  />
+  <div class="text-sm font-bold text-primary">Feedback</div>
+</div>
+
 <!--
-Danke und Übergang zu den 5 Minuten Fragen. Bei Bedarf auf Demo, Tool-Design,
-Security oder Spezifikationsstand eingehen.
+Danke und Übergang zu den 5 Minuten Fragen. Auf den Feedback-QR-Code rechts
+hinweisen; er führt zum Feedback für den Vortrag. Bei Bedarf auf Demo,
+Tool-Design, Security oder Spezifikationsstand eingehen.
 
 Timing: 19:50-20:00 (+ 5 min Q&A)
 -->
