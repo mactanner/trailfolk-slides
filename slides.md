@@ -412,11 +412,6 @@ transition: slide-up
   </div>
 </div>
 
-<div v-click class="mt-6">
-  <div class="text-2xl font-bold text-primary">Browser-API ≠ Agent-Unterstützung.</div>
-  <div class="mt-2 text-base opacity-75">Ein Flag aktiviert die API, nicht automatisch den Assistenten.</div>
-</div>
-
 <div class="absolute bottom-6 right-8 text-sm opacity-60">
   Aktueller Stand: <a href="https://webmcp.com/ecosystem-tracker" target="_blank" rel="noopener noreferrer">webmcp.com/ecosystem-tracker</a>
 </div>
@@ -439,86 +434,6 @@ https://github.com/mozilla/standards-positions/issues/1412 und
 https://github.com/WebKit/standards-positions/issues/670.
 
 Timing: 10:30-11:30
--->
-
----
-layout: default
-class: tools-api-slide
-transition: slide-up
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Der Code</div>
-
-# Imperativ oder deklarativ
-
-<div class="grid grid-cols-2 gap-8 mt-8 text-left">
-  <div v-click="1" class="rounded-xl border border-primary/30 bg-primary/5 p-6">
-    <div class="text-primary font-bold text-xl">Imperativ (JS)</div>
-    <code class="block mt-4 text-sm">document.modelContext<br>.registerTool({ … })</code>
-    <div class="mt-5 text-lg">Für eigene Logik, Navigation, Zustand, komplexe Abläufe.</div>
-  </div>
-  <div v-click="2" class="rounded-xl border border-primary/30 bg-primary/5 p-6 transition-opacity duration-300" :style="{ opacity: $clicks >= 3 ? 0.4 : undefined }">
-    <div class="text-primary font-bold text-xl">Deklarativ (HTML)</div>
-    <code class="block mt-4 text-sm">&lt;form toolname="…"<br>tooldescription="…"&gt;</code>
-    <div class="mt-5 text-lg">Für bestehende Formulare - der Browser leitet Tool und Schema ab.</div>
-  </div>
-  <div v-click="3" class="col-start-2 text-base leading-relaxed">
-    <span class="font-bold text-primary">Aktuell weniger im Fokus:</span>
-    Die deklarative API wird <a href="https://github.com/webmachinelearning/webmcp#future-exploration-declarative-api" target="_blank" rel="noopener noreferrer">separat erforscht</a>
-    und ist derzeit nicht mehr Teil des Spezifikationsentwurfs.
-  </div>
-</div>
-
-<!--
-Überblick vor dem konkreten Code. Imperativ für zustandsbehaftete Apps wie
-Trailfolk, deklarativ für vorhandene HTML-Formulare.
-
-Klick 1: JavaScript zeigen. Klick 2: HTML zeigen. Klick 3: HTML abblenden
-und den aktuellen Spezifikationsfokus einordnen. Die deklarative API wird
-separat erforscht; Chrome dokumentiert und erprobt sie weiterhin.
-Das ist keine Zusage, dass sie später Teil des Standards wird.
-
-Timing: 12:30-13:30
--->
-
----
-layout: default
-transition: fade
----
-
-<div class="text-sm tracking-widest uppercase opacity-55">Imperativ · JavaScript</div>
-
-# <i>filter_hikes</i>&nbsp;&nbsp;&nbsp;als Tool
-
-```js {all|1|2|3|4-14|15-18}
-await document.modelContext.registerTool({
-  name: 'filter_hikes',
-  description: 'Filtert Wanderungen nach Region, Schwierigkeit, Distanz, Dauer und Höhenmetern.',
-  inputSchema: {
-    type: 'object',
-    properties: {
-      region: { type: 'string', enum: ['zentralschweiz', 'tessin', 'berner-oberland'] },
-      difficulty: { type: 'string', enum: ['leicht', 'mittel', 'schwer'] },
-      maxDistanceKm: { type: 'number', description: 'Maximale Distanz in km' },
-      maxDurationH: { type: 'number', description: 'Maximale Gehzeit in Stunden' },
-      minElevation: { type: 'number', description: 'Minimale Höhenmeter' },
-    },
-    required: ['region'],
-  },
-  execute: async (args) => {
-    const hikes = applyFilters(args)
-    return `${hikes.length} Wanderungen gefunden.`
-  },
-})
-```
-
-<!--
-Der Kern für Entwickler: Name, Description, inputSchema (Vertrag), execute.
-execute ruft dieselbe Logik wie die UI auf. Das Tool ändert den UI-Zustand und
-ist deshalb nicht read-only; Annotations kommen auf der Folie «Schema,
-Annotations & Ownership».
-
-Timing: 13:30-15:00
 -->
 
 ---
@@ -561,21 +476,106 @@ transition: fade
 
 </div>
 
+<!--
+Mentales Modell vor dem Code in drei Schritten: Erst Vertrag (Schema - was
+akzeptiert das Tool), dann Verhalten (Annotations - wie ist es einzuordnen),
+dann Verantwortung (Ownership - wer prüft Berechtigungen und autorisiert
+Aktionen). Die drei Perspektiven erklären, nicht jede Annotation einzeln
+vertiefen.
 
+Danach zeigen die nächsten zwei Folien, wie dieses Modell zuerst als API-Wahl
+und dann in Trailfolk-Code aussieht.
+
+Fachliche Präzisierung: consequentialHint ist ein Hinweis auf potenziell
+folgenreiche Aktionen - keine Garantie, dass der Browser eine Bestätigung
+erzwingt. Ebenso ersetzt untrustedContentHint keine tatsächliche Sanitization;
+solche Schutzmaßnahmen müssen explizit implementiert werden. Ownership heißt
+nicht nur: wem gehört der Code, sondern auch: wer prüft Login, Berechtigungen
+und fachliche Regeln.
+
+Timing: 11:30-13:00
+-->
+
+---
+layout: default
+class: tools-api-slide
+transition: slide-up
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Der Code</div>
+
+# Imperativ oder deklarativ
+
+<div class="grid grid-cols-2 gap-8 mt-8 text-left">
+  <div v-click="1" class="rounded-xl border border-primary/30 bg-primary/5 p-6">
+    <div class="text-primary font-bold text-xl">Imperativ (JS)</div>
+    <code class="block mt-4 text-sm">document.modelContext<br>.registerTool({ … })</code>
+    <div class="mt-5 text-lg">Für eigene Logik, Navigation, Zustand, komplexe Abläufe.</div>
+  </div>
+  <div v-click="2" class="rounded-xl border border-primary/30 bg-primary/5 p-6 transition-opacity duration-300" :style="{ opacity: $clicks >= 3 ? 0.4 : undefined }">
+    <div class="text-primary font-bold text-xl">Deklarativ (HTML)</div>
+    <code class="block mt-4 text-sm">&lt;form toolname="…"<br>tooldescription="…"&gt;</code>
+    <div class="mt-5 text-lg">Für bestehende Formulare - der Browser leitet Tool und Schema ab.</div>
+  </div>
+  <div v-click="3" class="col-start-2 text-base leading-relaxed">
+    <span class="font-bold text-primary">Aktuell weniger im Fokus:</span>
+    Die deklarative API wird <a href="https://github.com/webmachinelearning/webmcp#future-exploration-declarative-api" target="_blank" rel="noopener noreferrer">separat erforscht</a>
+    und ist derzeit nicht mehr Teil des Spezifikationsentwurfs.
+  </div>
+</div>
 
 <!--
-Mentales Modell in drei Schritten: Erst Vertrag (Schema - was akzeptiert das Tool),
-dann Verhalten (Annotations - wie ist es einzuordnen), dann Verantwortung (Ownership -
-wer prüft Berechtigungen und autorisiert Aktionen).
-Die drei Perspektiven erklären, nicht jede Annotation einzeln vertiefen.
+Überblick vor dem konkreten Code: Beide APIs setzen das eben vorgestellte
+Modell um. Imperativ für zustandsbehaftete Apps wie Trailfolk, deklarativ für
+vorhandene HTML-Formulare.
 
-Fachliche Präzisierung: consequentialHint ist ein Hinweis auf potenziell folgenreiche
-Aktionen - keine Garantie, dass der Browser eine Bestätigung erzwingt. Ebenso ersetzt
-untrustedContentHint keine tatsächliche Sanitization; solche Schutzmaßnahmen müssen
-explizit implementiert werden. Ownership heißt nicht nur: wem gehört der Code, sondern
-auch: wer prüft Login, Berechtigungen und fachliche Regeln.
+Klick 1: JavaScript zeigen. Klick 2: HTML zeigen. Klick 3: HTML abblenden
+und den aktuellen Spezifikationsfokus einordnen. Die deklarative API wird
+separat erforscht; Chrome dokumentiert und erprobt sie weiterhin. Das ist keine
+Zusage, dass sie später Teil des Standards wird.
 
-Timing: 16:00-17:30
+Timing: 13:00-14:00
+-->
+
+---
+layout: default
+transition: fade
+---
+
+<div class="text-sm tracking-widest uppercase opacity-55">Imperativ · JavaScript</div>
+
+# <i>filter_hikes</i>&nbsp;&nbsp;&nbsp;als Tool
+
+```js {all|1|2|3|4-14|15-18}
+await document.modelContext.registerTool({
+  name: 'filter_hikes',
+  description: 'Filtert Wanderungen nach Region, Schwierigkeit, Distanz, Dauer und Höhenmetern.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      region: { type: 'string', enum: ['zentralschweiz', 'tessin', 'berner-oberland'] },
+      difficulty: { type: 'string', enum: ['leicht', 'mittel', 'schwer'] },
+      maxDistanceKm: { type: 'number', description: 'Maximale Distanz in km' },
+      maxDurationH: { type: 'number', description: 'Maximale Gehzeit in Stunden' },
+      minElevation: { type: 'number', description: 'Minimale Höhenmeter' },
+    },
+    required: ['region'],
+  },
+  execute: async (args) => {
+    const hikes = applyFilters(args)
+    return `${hikes.length} Wanderungen gefunden.`
+  },
+})
+```
+
+<!--
+Der Kern für Entwickler: Name, Description, inputSchema (Vertrag), execute.
+Damit wird das abstrakte Modell konkret: inputSchema beschreibt den Vertrag;
+die Web-App bleibt für Authentisierung, Berechtigungen und Fachregeln
+verantwortlich. execute ruft dieselbe Logik wie die UI auf. Das Tool ändert den
+UI-Zustand und ist deshalb nicht read-only.
+
+Timing: 14:00-15:30
 -->
 
 ---
@@ -656,13 +656,16 @@ transition: slide-up
 <div v-click class="mt-6 grid grid-cols-[8rem_1fr] gap-x-5 gap-y-2 text-xl leading-snug">
   <span class="opacity-60">Vorher</span>
   <span class="opacity-80">UI lesen, Controls finden, klicken.</span>
-  <span class="font-bold text-[#8dd9f3]">Mit WebMCP</span>
+  <span class="font-bold text-[#8dd9f3]">WebMCP</span>
   <span>Passendes Tool direkt aufrufen.</span>
 </div>
 
-<div v-click class="mt-6 text-4xl font-bold leading-tight">
+<div v-click class="mt-6 text-4xl font-b
   <div>Der DOM ist keine API.</div>
-  <div class="mt-3 text-[#8dd9f3]">Die Web-App kann eine anbieten.</div>
+</div>
+
+<div v-click class="mt-6 text-4xl font-bold leading-tight">
+  <div class="mt-3 text-[#8dd9f3]">Dank WebMCP können Web-Apps eine anbieten.</div>
 </div>
 
 <!--
