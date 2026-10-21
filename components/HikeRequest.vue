@@ -18,7 +18,7 @@ defineProps<{
 .hike-request {
   position: relative;
   padding: 2rem 2.25rem;
-  border-radius: 1.5rem 1.5rem 1.5rem 0.35rem;
+  border-radius: 1.5rem 1.5rem 1.5rem 0;
   background: rgb(255 255 255 / 6%);
   text-align: left;
 }
